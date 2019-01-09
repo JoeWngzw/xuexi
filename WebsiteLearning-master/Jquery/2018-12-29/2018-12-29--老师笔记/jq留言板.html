@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+
+	<style>
+		
+
+
+
+	</style>
+	<script src="./jquery.js"></script>
+
+	<script>
+		
+		$(function () {
+
+
+			$('#btn').on('click', function () {
+
+				var oVal = $('input').val()
+
+
+				$('input').val('')
+
+				var oLi = $('<li>');
+
+				oLi.html(oVal)
+
+				$('ul').prepend(oLi)
+			})
+
+
+		})
+	</script>
+	<body>
+		
+		<input type="text" placeholder="请输入留言">
+		<button id="btn">发送</button>
+		<ul>
+			
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子游戏-列表页</title>
+	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/base.css">
+</head>
+<style>
+	
+</style>
+
+<script src="./js/jquery.js"></script>
+
+<script src="./js/common.js"></script>
+
+<script>
+	
+	$(function () {
+		var aInps = $('input')
+		$('.submit').on('click', function () {
+			$.ajax({
+				url: 'https://b9188.com/member/login/',
+				type: 'post',
+				data: {
+					username: aInps.eq(0).val(),
+					password: aInps.eq(1).val()
+				},
+				success: function (data) {
+					console.log('success')
+					console.log(data)
+
+					$('.islogin').show()
+					$('.btn-box').hide()
+
+					var token = data.access_token;
+
+					var oDate = new Date();
+
+					
+					var oS = oDate.getSeconds()
+
+					oDate.setSeconds(oS + 30)
+
+					document.cookie = 'token=' + token + '; path=/ ;' + 'expires=' + oDate.toGMTString();
+
+					window.open('/WebsiteLearning-master/Jquery/2019-1-6/marty/home.html', '_self')
+
+
+				},
+				error: function (e) {
+					console.log(e.responseJSON)
+
+					$('.login-info').show()
+				}
+			})
+		})
+	})
+</script>
+<body>
+
+	<div class="logo-box clearfix main-w">
+		<img class="fl" src="https://jaguar-production.azureedge.net/website/home-page/icon/logo_s96JYBx.png" alt="">
+		<div class="fr btn-box">
+			<button class="btn-login"><a href="/大牙/前端5期/2019-1-4/marty/login.html">登陆</a></button>
+			<button class="btn-register">注册</button>
+		</div>
+
+		<div class="islogin fr">
+			<a href="">立即存款</a>
+			<a href="">申请取款</a>
+			<a href="">额度转换</a>
+			<a href="">站内消息</a>
+		</div>
+	</div>
+	<div class="nav clearfix main-w">
+		<ul class="fl clearfix list">
+			<li class="fl">首页</li>
+			<!-- <li class="fl">
+				<p>真人视讯</p>
+				<span class="caret"></span>
+				<div class="drop">
+					<div class="main-w menus clearfix">
+	
+						<div class="item fl">
+							<img src="https://jaguar-production.azureedge.net/providericons/ag.png" alt="">
+							<p>AG电子</p>
+						</div>
+						
+
+						<div class="item fl">
+							<img src="https://jaguar-production.azureedge.net/providericons/ag.png" alt="">
+							<p>AG电子</p>
+						</div>
+
+						<div class="item fl">
+							<img src="https://jaguar-production.azureedge.net/providericons/ag.png" alt="">
+							<p>AG电子</p>
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<li class="fl">
+
+				<p>电子游艺</p>
+				<span class="caret"></span>
+
+				<div class="drop">
+					<div class="main-w menus">
+						电子游艺
+					</div>
+				</div>
+
+			</li>
+			<li class="fl">
+				<p>体育赛事</p>
+				<span class="caret"></span>
+
+				<div class="drop">
+					<div class="main-w menus">
+						体育赛事
+					</div>
+				</div>
+			</li>
+			<li class="fl">
+				<p>彩票游戏</p>
+				<span class="caret"></span>
+
+				<div class="drop">
+					<div class="main-w menus">
+						彩票游戏
+					</div>
+				</div>
+			</li>
+			<li class="fl">
+				<p>捕鱼</p>
+				<span class="caret"></span>
+				
+				<div class="drop">
+					<div class="main-w menus">
+						捕鱼
+					</div>
+				</div>
+			</li> -->
+		</ul>
+		<ul class="fr clearfix">
+			<li class="fl">优惠活动</li>
+			<li class="fl">代理加盟</li>
+			<li class="fl">在线客服</li>
+		</ul>
+	</div>
+
+	<div  class="main-w inp-box">
+		
+		<div class="item">
+			<span>用户名:</span>
+			<input type="text" placeholder="请输入用户名">
+		</div>
+
+		<div class="item">
+			<span>密码:</span>
+			<input type="password" placeholder="请输入密码">
+		</div>
+		<p class="login-info">用户名或密码输入错误</p>
+	
+		<button class="submit">登陆</button>
+	</div>
+
+</body>
+</html>

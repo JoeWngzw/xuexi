@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>滚动加载</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}	
+	.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+	.clearfix{*+height:1%;}
+	ul{
+		float: left;
+		border: 1px solid #ccc;
+		margin: 10px;
+		margin-left: 20px;
+
+	}
+
+	li{
+		list-style: none;
+		width: 100px;
+		margin: 10px;
+	}
+</style>
+<script type="text/javascript">
+
+	function sjNum(n,m){
+		return parseInt((Math.random() * (n-m))+m);
+	}
+
+
+	window.onload = function(){
+		var aa = document.getElementsByTagName('ul')
+
+		function li20(){
+
+			for (var i = 0; i < 30; i++) {
+				var oLi = document.createElement('li');
+
+				oLi.style.height = sjNum(80,110)+'px';
+
+				oLi.style.backgroundColor = 'rgb('+sjNum(0,225)+','+sjNum(0,225)+','+sjNum(0,225)+')';
+
+				var arrt = [aa[0], aa[1], aa[2]];
+
+				arrt.sort(function (ul1, ul2) {
+					return ul1.offsetHeight - ul2.offsetHeight
+				})
+
+				arrt[0].appendChild(oLi);
+			}
+
+		}
+
+
+		li20(); //第一次先加载
+
+
+
+			//滚动加载
+			window.onscroll = function () {
+			console.log('鼠标滚动了')
+
+			//滚动高度---元素滚动条被向下拉动的距离
+			var gdgd = document.documentElement.scrollTop || document.body.scrollTop; 
+
+			//可是区域高度 --元素的内容+内边距。不包括边框、外边距和滚动条部分
+			var keqycd = document.body.clientHeight; 
+
+
+			//获取网页正文全文高
+			var nrsjgd = document.documentElement.scrollHeight || document.body.scrollHeight; 
+
+			console.log(gdgd);
+			console.log(keqycd);
+			console.log(nrsjgd);
+
+			//判断---可是区域高度+滚动高度。> 所有内容高度
+			if(gdgd + keqycd > nrsjgd){
+				li20();
+			}
+		}
+}
+
+
+
+</script>
+</head>
+<body>
+	<div class="clearfix">
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+	</div>
+
+	
+</body>
+</html>

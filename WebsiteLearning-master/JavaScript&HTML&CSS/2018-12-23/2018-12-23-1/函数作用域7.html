@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<script>
+		
+		// 作用域的概念：一个函数是一个封闭作用域，
+		// 变量查找规则是 先查找本作用域有没有申明该变量 如果没有申明再往父级作用查找
+		var a = 2
+
+		function show() {
+			var a
+			a = 1
+		}
+
+		show()
+
+		alert(a)
+	</script>
+	<body>
+		
+	</body>
+</html>

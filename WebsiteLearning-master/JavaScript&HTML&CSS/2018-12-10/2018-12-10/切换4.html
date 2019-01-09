@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		width: 50px;
+		height: 50px;
+		border:  1px solid #ccc;
+
+		text-align: center;
+		line-height: 50px;
+		border-radius: 50%;
+		display: inline-block;
+		cursor: pointer;
+		color: #000;
+		background-color: #fff;
+	}
+
+	li.active {
+		background-color: black;
+		color: #fff;
+	}
+</style>
+<script>
+	window.onload = function () {
+		// var oLi1 = document.getElementById('li1')
+		// var oLi2 = document.getElementById('li2')
+		// var oLi3 = document.getElementById('li3')
+		// var oLi4 = document.getElementById('li4')
+		// var oLi5 = document.getElementById('li5')
+		// var oLi6 = document.getElementById('li6')
+
+		// oLi1.onclick = function () {
+		// 	oLi1.className = 'active'
+		// }
+
+		// oLi2.onclick = function () {
+		// 	oLi2.className = 'active'
+		// }
+
+
+		// oLi3.onclick = function () {
+		// 	oLi3.className = 'active'
+		// }
+
+		// oLi4.onclick = function () {
+		// 	oLi4.className = 'active'
+		// }
+
+		// oLi5.onclick = function () {
+		// 	oLi5.className = 'active'
+		// }
+
+		// oLi6.onclick = function () {
+		// 	oLi6.className = 'active'
+		// }
+
+		var aLis = document.getElementsByTagName('li')
+
+		console.log(aLis)
+
+		// aLis[0].onclick = function () {
+
+		// }
+
+		// aLis[1].onclick = function () {
+			
+		// }
+
+
+		// aLis[2].onclick = function () {
+			
+		// }
+
+
+		for(var i = 0; i < 6; i++) {
+			aLis[i].onclick = function () {
+				this.className = 'active'
+			}
+		}
+
+
+
+	}
+</script>
+<body>
+	<ul id="box">
+		<li id="li1">1</li>
+		<li id="li2">2</li>
+		<li id="li3">3</li>
+		<li id="li4">4</li>
+		<li id="li5">5</li>
+		<li id="li6">6</li>
+	</ul>
+</body>
+</html>

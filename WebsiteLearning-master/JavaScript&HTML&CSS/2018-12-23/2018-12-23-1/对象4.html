@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.round {
+			width: 60px;
+			height: 60px;
+			border: 1px solid #ccc;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 60px;
+		}
+	</style>
+
+	<script>
+		
+		
+		for(var key in window) {
+			document.write(key + '  ' + window[key] + '<br />')
+		}
+
+	</script>
+	
+	<body>
+
+		<div aaa="1" id="box" class="contaner" style="width: 100px; height: 100px; background-color: #ccc">
+			
+		</div>
+		<p></p>
+		<ul>
+			
+			<li></li>
+		</ul>
+
+		<script>
+
+
+			
+			var oDiv = document.getElementById('box');
+
+			alert(oDiv['aaa'])
+
+			alert(oDiv['id'])
+
+
+			var n = oDiv.getAttribute('aaa')
+
+			alert(oDiv['getAttribute']('aaa'))
+
+			var aLis = document.getElementsByTagName('li')
+
+
+
+			for(var name in oDiv) {
+
+				console.log(name)
+				console.log(oDiv[name])
+			}
+
+
+		</script>
+	</body>		
+</html>

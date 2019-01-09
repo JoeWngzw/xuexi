@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" onclick="alert('html')">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style>
+
+	* {
+		margin: 0;
+	}
+	#box {
+		background-color: green;
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
+	}
+
+	.red {
+		width: 100px;
+		height: 100px;
+		margin: 100px auto;
+		background-color: red;
+	}
+</style>
+
+
+<script src="./jquery.js"></script>
+
+<script>
+	$(function () {
+
+		alert($('#box').find('.red').html())
+
+		console.log($('#box').find('.red').get(0))
+
+
+		var a = $('#box').find('.red').get(0).getAttribute('data-flag')
+
+
+		var b= $('#box').find('.red').data('flag')
+		alert(a)
+
+		alert(b)
+
+
+		alert($('#box').find('.red').id)
+
+
+		alert($('#box').find('.red').attr('id'))
+
+
+		$('#box').find('.red').attr('data-flag', 'hahah')
+
+		var color = getComputed($('#box').find('.red').get(0), false)['background-color']
+
+		alert(color)
+	})
+</script>
+
+
+	<body onclick="alert('body')">
+		<div id="box">
+			<div data-flag="cqssc" class="red" id="red">ewewwe</div>
+		</div>
+	</body>
+</html>

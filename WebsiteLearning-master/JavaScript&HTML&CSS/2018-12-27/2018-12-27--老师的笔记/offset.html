@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<title>offset</title>
+	</head>
+	<style>
+
+		* {
+			margin: 0;
+		}
+		#div1 {
+			width: 300px;
+			height: 310px;
+			background-color: red;
+			border: 1px solid black;
+			position: absolute;
+			left: 400px;
+			top: 200px;
+		}
+	
+		.div2 {
+			width: 80px;
+			height: 90px;
+			background-color: green;
+			margin-left: 80px;
+			margin-top: 40px;
+			overflow: hidden;
+		}
+
+		.div3 {
+			width: 50px;
+			height: 50px;
+			margin-left: 20px;
+			margin-top: 10px;
+			background-color: #ccc;
+		}
+
+
+	</style>
+	<body>
+		<div id="div1">
+			<div id="div2" class="div2">
+				
+				<div class="div3" id="div3"></div>
+			</div>
+		</div>
+
+
+		<script>
+			var oDiv = document.getElementById('div1');
+			var oDiv2 = document.getElementById('div2');
+			var oDiv3 = document.getElementById('div3');
+
+
+			function getPos (obj) {
+
+				var oPos = {
+					left: 0,
+					top: 0
+				}
+
+				while(obj.offsetParent) {
+					oPos.left = oPos.left + obj.offsetLeft
+					oPos.top = oPos.top + obj.offsetTop
+
+					obj = obj.offsetParent
+				}
+
+				return oPos
+			}
+
+			var a = getPos(oDiv3);
+
+			console.log(a)
+
+		</script>
+
+	</body>
+</html>

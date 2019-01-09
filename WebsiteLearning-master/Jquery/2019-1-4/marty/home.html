@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子游戏-列表页</title>
+	<link rel="stylesheet" href="./css/common.css">
+</head>
+<style>
+	body {
+		background-color: #2a2c3b;
+	}
+	.main-w {
+		width: 1000px;
+		margin: auto;
+	}
+
+	.nav {
+		height: 50px;
+		color: #fff;
+	}
+
+	.nav li {
+		line-height: 50px;
+		padding: 0 20px;
+		text-align: center;
+	}
+
+	.drop {
+		position: absolute;
+		left: 0;
+		height: 90px;
+		background-color: red;
+		display: none;
+	}
+
+	.menus {
+		height: 100%;
+		background-color: #232431;
+	}
+
+	.caret {
+		width: 0;
+		height: 0;
+		border: 5px solid transparent;
+		border-top-color: #fff;
+		line-height: 10px;
+		display: block;
+		margin: 0 auto;
+		margin-top: -12px;
+	}
+
+	.item {
+		margin-left: 20px;
+	}
+
+	.item p {
+		margin-top: -24px;
+	}
+
+	.item img {
+		width: 95px;
+	}
+
+	
+</style>
+
+<script src="./js/jquery.js"></script>
+
+<script>
+	
+	
+	$(function () {
+		var clientW = document.body.clientWidth || document.documentElement.clientWidth
+
+		$.ajax({
+			url: 'http://b9088.com/member/gamecategory/?mode=tree',
+			type: 'get',
+			success: function (data) {
+				console.log(data)
+				handleGamecategory(data)
+			}
+		})
+
+		function handleGamecategory (data) {
+			var arr = []
+			for(var i = 0; i < data.length; i++) {
+
+				var arrItems = []
+				for(var j = 0; j < data[i].provider.length;j++) {
+
+					var oProvider = data[i].provider[j]
+					var name = oProvider.code + oProvider.category_type.substring(0, 2)
+					var oItem = '<div data-flag="'+oProvider.code+'" class="item fl">\
+						<img src="'+data[i].provider[j].icon+'" alt="">\
+						<p>'+name+'</p>\
+					</div>'
+
+					arrItems.push(oItem)
+				}
+
+				var oS = '<li class="fl">\
+					<p>'+data[i].name+'</p>\
+					<span class="caret"></span>\
+					<div class="drop">\
+						<div class="main-w menus clearfix">\
+							'+arrItems.join('')+'\
+						</div>\
+					</div>\
+				</li>'
+
+				arr.push(oS)
+			}
+
+			$('.list').append(arr.join(''))
+
+			var aDrops = $('.drop')
+			aDrops.css('width', clientW)
+
+			$('.list li').hover(function() {
+				$(this).find('.drop').show()
+			}, function() {
+				$('.list li .drop').hide()
+			});
+
+			$('.list li').eq(2).find('.item').on('click', function () {
+
+				var oDate = new Date()
+				var tody = oDate.getFullYear() + '-' + (oDate.getMonth() + 1) + '-' + oDate.getDay()
+
+				var oProvider = $(this).data('flag')
+
+				window.open('/大牙/前端5期/2019-1-3/marty/list.html?date=' + tody + '&provider=' + oProvider , '_self')
+			})
+
+		}
+
+		window.onresize = function () {
+
+			var clientW = document.body.clientWidth || document.documentElement.clientWidth
+
+			aDrops.css('width', clientW)
+
+		}
+	})
+	
+</script>
+<body>
+	<div class="nav clearfix main-w">
+		<ul class="fl clearfix list">
+			<li class="fl">首页</li>
+			<!-- <li class="fl">
+				<p>真人视讯</p>
+				<span class="caret"></span>
+				<div class="drop">
+					<div class="main-w menus clearfix">
+	
+						<div class="item fl">
+							<img src="https://jaguar-production.azureedge.net/providericons/ag.png" alt="">
+							<p>AG电子</p>
+						</div>
+						
+
+						<div class="item fl">
+							<img src="https://jaguar-production.azureedge.net/providericons/ag.png" alt="">
+							<p>AG电子</p>
+						</div>
+
+						<div class="item fl">
+							<img src="https://jaguar-production.azureedge.net/providericons/ag.png" alt="">
+							<p>AG电子</p>
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<li class="fl">
+
+				<p>电子游艺</p>
+				<span class="caret"></span>
+
+				<div class="drop">
+					<div class="main-w menus">
+						电子游艺
+					</div>
+				</div>
+
+			</li>
+			<li class="fl">
+				<p>体育赛事</p>
+				<span class="caret"></span>
+
+				<div class="drop">
+					<div class="main-w menus">
+						体育赛事
+					</div>
+				</div>
+			</li>
+			<li class="fl">
+				<p>彩票游戏</p>
+				<span class="caret"></span>
+
+				<div class="drop">
+					<div class="main-w menus">
+						彩票游戏
+					</div>
+				</div>
+			</li>
+			<li class="fl">
+				<p>捕鱼</p>
+				<span class="caret"></span>
+				
+				<div class="drop">
+					<div class="main-w menus">
+						捕鱼
+					</div>
+				</div>
+			</li> -->
+		</ul>
+		<ul class="fr clearfix">
+			<li class="fl">优惠活动</li>
+			<li class="fl">代理加盟</li>
+			<li class="fl">在线客服</li>
+		</ul>
+	</div>
+</body>
+</html>

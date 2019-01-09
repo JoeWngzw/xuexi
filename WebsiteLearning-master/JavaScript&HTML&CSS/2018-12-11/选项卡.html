@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<style>
+		
+		#box div {
+			width: 260px;
+			height: 200px;
+			border: 1px solid #ccc;
+			text-align: center;
+			line-height: 200px;
+			display: none;
+		}
+
+		button.active {
+			background-color: red;
+			color: #fff;
+		}
+
+		#box div.active {
+			display: block;
+		}
+
+	</style>
+	<script>
+		
+		window.onload = function () {
+			var aBtns = document.getElementsByTagName('button');
+
+			for(var i = 0; i < aBtns.length; i++) {
+				aBtns[i].onclick = function () {
+
+					aBtns[0].className = ''
+					aBtns[1].className = ''
+					aBtns[2].className = ''
+
+					this.className = 'active'
+				}
+			}
+
+		}
+	</script>
+	<body>
+		<button class="active">家用电器</button>
+		<button>男装/女装</button>
+		<button>食品/酒类</button>
+
+		<div id="box">
+			<div class="active">我是家用电器</div>
+			<div>我是男装/女装</div>
+			<div>我是食品/酒类</div>
+		</div>
+	</body>
+</html>

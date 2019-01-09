@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="">
+		<p>你的名字<input type="text" ng-model="aa"></p>
+
+		<h1>hello{{aa}}</h1>
+		
+		<span ng-init="aa='111'"></span>
+
+		姓名：<p ng-bind="aa"></p>
+
+		<p>和：{{5*5}}</p>
+	</div>
+</body>
+</html>

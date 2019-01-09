@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    button, input, select {
+        outline: none;
+    }
+    button {
+        padding:  5px 12px;
+        margin-bottom: 20px;
+    }
+    button.active {
+        background: green;
+        color: #fff;
+    }
+
+    #tabBox div {
+        width: 320px;
+        height: 280px;
+        border: 1px solid black;
+        text-align: center;
+        line-height: 350px;
+        display: none;
+    }
+
+    #tabBox div.active {
+        display: block;
+    }
+</style>
+<script>
+    window.onload = function () {
+        var aBtns = document.getElementsByTagName('button')
+
+        var oTabBox = document.getElementById('tabBox')
+        var aDivs = oTabBox.querySelectorAll('div')
+
+        var aDirecs = document.getElementsByTagName('input')
+
+        var currentIndex = 0
+
+        var direction = true
+
+        for(var i = 0; i < aBtns.length; i++) {
+
+            aBtns[i].index = i
+            aBtns[i].onclick = function () {
+
+                currentIndex = this.index
+                for(var i = 0; i < aBtns.length; i++) {
+                    aBtns[i].className = ''
+                    aDivs[i].className = ''
+                }
+
+                this.className = 'active'
+
+                aDivs[this.index].className = 'active' 
+
+            }
+        }
+
+
+        aDirecs[0].onclick = function () {
+
+            direction = false
+        }
+
+
+        aDirecs[1].onclick = function () {
+            direction = true
+        }
+
+
+        function moveRight () {
+            currentIndex++
+            if (currentIndex === 4) {
+                currentIndex = 0
+            }
+            for(var i = 0; i < aBtns.length; i++) {
+                aBtns[i].className = ''
+                aDivs[i].className = ''
+            }
+            aDivs[currentIndex].className = 'active'
+            aBtns[currentIndex].className = 'active'
+        }
+
+
+        function moveLeft () {
+            currentIndex--
+
+            if (currentIndex < 0) {
+                currentIndex = aBtns.length - 1
+            }
+            for(var i = 0; i < aBtns.length; i++) {
+                aBtns[i].className = ''
+                aDivs[i].className = ''
+            }
+
+            aDivs[currentIndex].className = 'active'
+            aBtns[currentIndex].className = 'active'
+        }
+
+
+
+        var t
+
+
+
+
+        t = setInterval(function () {
+
+            if (!direction) {
+                moveLeft()
+            } else {
+                moveRight()
+            }
+        }, 2000)
+
+
+
+        oTabBox.onmouseenter = function () {
+            clearInterval(t)
+        }
+
+
+        oTabBox.onmouseleave = function () {
+            t = setInterval(function () {
+
+                if (!direction) {
+                    moveLeft()
+                } else {
+                    moveRight()
+                }
+            }, 2000)
+        }
+
+
+    }
+
+</script>
+<body>
+    
+    
+    <input type="button" value="<=往左">
+    <input type="button" value="往右=>">
+    <div id="tabBox">
+        <button class="active">新闻</button>
+        <button>热点</button>
+        <button>娱乐</button>
+        <button>体育</button>
+
+
+        <div class="active">我是新闻</div>
+        <div>我是热点</div>
+        <div>我是娱乐</div>
+        <div>我是体育</div>
+    </div>
+   
+</body>
+</html>

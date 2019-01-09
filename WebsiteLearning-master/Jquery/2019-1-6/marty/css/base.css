@@ -1,0 +1,102 @@
+body {
+	background-color: #2a2c3b;
+}
+.main-w {
+	width: 1000px;
+	margin: auto;
+}
+.nav {
+	height: 50px;
+	color: #fff;
+}
+
+.nav li {
+	line-height: 50px;
+	padding: 0 20px;
+	text-align: center;
+}
+
+.drop {
+	position: absolute;
+	left: 0;
+	height: 90px;
+	background-color: #232431;
+	display: none;
+	z-index: 999;
+}
+
+.menus {
+	height: 100%;
+	background-color: #232431;
+}
+
+.caret {
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-top-color: #fff;
+	line-height: 10px;
+	display: block;
+	margin: 0 auto;
+	margin-top: -12px;
+}
+
+.item {
+	margin-left: 20px;
+}
+
+.item p {
+	margin-top: -24px;
+}
+
+.item img {
+	width: 95px;
+}
+
+.logo-box img {
+	width: 245px;
+}
+
+
+.btn-login {
+	padding: 4px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 15px;
+}
+
+.btn-register {
+	padding: 4px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 15px;
+	background-color: #e7af5f;
+	color: #fff;
+}
+
+
+.btn-box {
+	padding-top: 20px;	
+	display: none;
+}
+
+.inp-box {
+	background-color: white;
+	min-height: 400px;
+}
+
+.login-info {
+	color: red;
+	padding-left: 20px;
+	display: none;
+}
+
+.islogin {
+	padding-top: 26px;
+	color: #fff;
+	display: none;
+}
+
+.islogin a {
+	color: #fff;
+}

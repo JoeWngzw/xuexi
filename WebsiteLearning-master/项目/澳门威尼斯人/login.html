@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>澳门威尼斯人-登录</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/login.css">
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			$('.submit').click(function(){
+				console.log($('#name').val())
+				console.log($('#pwd').val())
+				$.ajax({
+					url:"https://b9188.com/member/login/",
+					type:"post",
+					data:{
+						username:$('#name').val(),
+						password:$('#pwd').val()
+					},
+					success:function(data){
+						console.log(data);
+						var token = data.access_token;
+						var date = new Date();
+						var oS  = date.getSeconds();
+						console.log(oS)
+						console.log(token);
+
+						date.setSeconds(oS + 30)
+
+						document.cookie = 'token=' + token + '; path=/ ;' + 'expires=' + date.toGMTString();
+						alert('token=' + token + '; path=/ ;' + 'expires=' + date.toGMTString());
+						window.open('/WebsiteLearning-master/项目/澳门威尼斯人/index.html', '_self')
+					},
+					error:function(e){
+						console.log(e);
+						$('.error').show();
+					}
+				})
+			})
+
+		})
+	</script>
+</head>
+<body>
+		<div class="header-top">
+		<div class="container">
+			<span class="datetime-wrap">
+				亚洲/上海:
+			</span>
+			
+			<span id="currentDateTime">2018/12/31 23:08:49 (UTC +08:00)</span>
+			
+			<!-- <span class="top-link-wrap">
+				<a class="wxcz" href="javascript:;"></a>
+				<a class="app-download" href="javascript:;">手机app下载</a>
+			</span> -->
+
+			<ul class="top-link-wrap">
+				<li><img src="./image/wxcz.gif"></li>
+				<li><a class="app-download" href="javascript:;">手机app下载</a></li>
+				<li>|</li>
+				<li><a style="color: #999" href="javascript:;">代理注册</a></li>
+				<li>|</li>
+				<li><a style="color: #999" href="javascript:;"></a>加入收藏</li>
+				<li>
+					<a style="background-position: 0 -80px;" class="ele-lang-zh-cn" href="javascript:;"></a>
+					<a class="ele-lang-en" href="javascript:;"></a>
+
+				</li>
+			</ul>
+
+		</div>
+	</div>
+	
+	<!-- 头部 -->
+	<div class="header">
+		<div class="container">
+			<div class="venetina-img">
+				<a href="javascript:;">
+					<img src="./image/logo_s96JYBx.png">
+				</a>
+			</div>
+			<div class="login-registered fr">
+				<a class="header-login" href="/WebsiteLearning-master/项目/澳门威尼斯人/login.html">登录</a>
+				<a class="header-registered" href="javascript:;">免费注册</a>
+			</div>
+		</div>
+	</div>
+	<!-- 导航栏 -->
+	<div class="header-navbar">
+		<ul class="game-nav">
+			<li><a href="javascript:;">首页</a></li>
+			<li class="fr"><a class="" href="javascript:;">优惠活动</a></li>
+			<li class="fr"><a class="" href="javascript:;">代理加盟</a></li>
+			<li class="fr"><a class="" href="javascript:;">在线客服</a></li>
+		</ul>
+	</div>
+
+	<div class="loginDiv">
+		<div class="login">
+			<span>用户名</span>
+			<input type="text" id="name" name=""><br>
+			<span>密码</span>
+			<input type="password" id="pwd" name=""><br>
+			<p class="error">账户密码错误</p>
+			<button class="submit">登录</button>
+		</div>
+	</div>
+</body>
+</html>

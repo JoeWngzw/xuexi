@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" onclick="alert('html')">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style>
+
+	* {
+		margin: 0;
+	}
+	#box {
+		background-color: green;
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
+	}
+
+	.red {
+		width: 100px;
+		height: 100px;
+		margin: 100px auto;
+		background-color: red;
+	}
+</style>
+
+<script>
+	window.onload = function () {
+		
+ 
+		var person1 = {
+			name: 'xiaofang',
+			friends: [1, 2, 3],
+			sayMyName: function (color) {
+				alert(this.name)
+				alert(color)
+			},
+			sayFriends: function () {
+				console.log(this.friends)
+			}
+		}
+
+
+		var person2 = {
+			name: '老王',
+			friends: [999, 1000, 'laoxi'],
+			sayMyName: function () {
+				alert(this.name)
+			},
+			sayFriends: function () {
+				console.log(this.friends)
+			}
+		}
+
+		person1.sayMyName('blue')
+
+		person1.sayMyName.call(person2, 'red')
+
+
+	}
+</script>
+	<body onclick="alert('body')">
+		
+	</body>
+</html>

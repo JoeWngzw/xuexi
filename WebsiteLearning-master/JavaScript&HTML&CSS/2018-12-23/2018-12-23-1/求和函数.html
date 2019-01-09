@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.round {
+			width: 60px;
+			height: 60px;
+			border: 1px solid #ccc;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 60px;
+		}
+	</style>
+
+	<script>
+
+		// 求出参数 arr每一项的累加结果
+		function sum (arr) {
+
+			var n // n 记录 循环里面 累加的结果
+			for(var i = 0; i < arr.length; i++) {
+
+				if (i == 0) {
+					n = arr[i]
+				} else {
+					n = n + arr[i]
+				}
+			}
+
+			return n
+		}
+
+		var a = sum([1, -0.2, -1, 2.2, 8])
+
+		alert(a)
+	</script>
+
+	<body>
+				
+	</body>		
+		
+</html>

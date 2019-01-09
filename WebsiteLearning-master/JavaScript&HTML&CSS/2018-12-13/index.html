@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var cbox = document.getElementsByClassName('cbox');
+			var qx = document.getElementById('qx');
+			var fx = document.getElementById('fx');
+			
+			var n = 0;  //记录下标
+
+
+			console.log(cbox);
+			//全选
+			qx.onclick= function(){
+				for (var i = 0; i < cbox.length; i++) {
+					if(qx.checked == true){
+						cbox[i].checked =true;
+						n = 0;
+					}else{
+						cbox[i].checked =false;
+						n = cbox.length;
+					}
+					console.log(n);
+				}
+			}
+
+			//反选
+			fx.onclick= function(){
+				for (var i = 0; i < cbox.length; i++) {
+					if(cbox[i].checked == true){
+						cbox[i].checked = false;
+						n--;
+					}else{
+						cbox[i].checked = true;
+						n++;
+					}
+					console.log(n);
+				}
+
+			}
+
+			for (var i = 0; i < cbox.length; i++) {
+				cbox[i].onclick = function(){
+					if (this.checked == true) {
+						n++;
+					}else{
+						n--;
+					}
+					if(n == cbox.length){
+						qx.checked = true;
+					}else{
+						qx.checked = false;
+					}
+				}
+
+			}
+			
+			
+		}
+	</script>
+</head>
+<body>
+	<input id="qx" type="checkbox" name="">全选
+	<input id="fx" type="checkbox" name="">反选
+	<hr>
+
+	<input class="cbox" type="checkbox" name="">
+	<input class="cbox" type="checkbox" name="">
+	<input class="cbox" type="checkbox" name="">
+	<input class="cbox" type="checkbox" name="">
+	<input class="cbox" type="checkbox" name="">
+	<input class="cbox" type="checkbox" name="">
+	<input class="cbox" type="checkbox" name="">
+	<input class="cbox" type="checkbox" name="">
+</body>
+</html>

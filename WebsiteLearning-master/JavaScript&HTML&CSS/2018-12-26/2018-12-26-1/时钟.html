@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 100%;
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<script>
+
+    function toDoube (n) {
+        // if (n < 10) {
+        //     n = '0' + n
+        // }
+        // return n
+
+        return n < 10 ? '0' + n : n + ''
+    }
+
+    window.onload = function () {
+
+        var oDiv = document.getElementById('div1')
+
+
+        function clock () {
+            var oDate = new Date()
+
+            var oH = oDate.getHours()
+
+            var oM = oDate.getMinutes()
+
+            var oS = oDate.getSeconds()
+
+            if (oM < 10) {
+              oM = '0' + oM
+            }
+
+            oDiv.innerHTML = toDoube(oH) + ':' + toDoube(oM) + ':' + toDoube(oS)
+
+        }
+
+        clock()
+
+        var t = setInterval(function () {
+            clock()
+        }, 1000)
+
+    }
+</script>
+<body>
+    <div id="div1">11:11:11</div>
+</body>
+</html>

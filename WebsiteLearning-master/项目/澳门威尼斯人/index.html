@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>澳门威尼斯人</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			// var index = 1;
+			// function time(){
+			// 	index++;
+			// 	if(index>5){
+			// 		index = 1;
+			// 	}
+			// 	$('.banner-box').css('background','url(./image/'+index+'.jpg) center 0px no-repeat');	
+			// }
+
+
+
+			var lbta;
+			var index = 0;
+
+			function lbt(){
+				index++;
+				if(index==$('.banner-box li').length){
+					index = 0;
+				}
+				$('.banner-box li').eq(index).fadeIn(1000).siblings().fadeOut(1000);
+			}
+			$.ajax({
+				url:"https://b9188.com/member/banners/?platform=1",
+				type:'get',
+				success:function(data){
+					console.log(data);
+					var arr = [];
+					for (var i = 0; i < data.length; i++) {
+						if(i ==0){
+							str = '<li class="active" style="background: url('+data[i].image+') center;"></li>'
+						}else{
+							str = '<li style="background: url('+data[i].image+') center;"></li>'
+						}
+						arr.push(str);
+					}
+					$('.banner-box ul').html(arr.join(''));
+			
+					 lbta = setInterval(lbt,3000)
+
+				},
+				error:function(e){
+					console.log(e);
+				}
+			})
+			
+
+			$('.banner-box').hover(function(){
+				clearInterval(lbta);
+			},function(){
+				clearInterval(lbta);
+				lbta = setInterval(lbt,3000);
+			})
+
+		})
+	</script>
+</head>
+<body>
+	<!-- header 最顶部 -->
+	<div class="header-top">
+		<div class="container">
+			<span class="datetime-wrap">
+				亚洲/上海:
+			</span>
+			
+			<span id="currentDateTime">2018/12/31 23:08:49 (UTC +08:00)</span>
+			
+			<!-- <span class="top-link-wrap">
+				<a class="wxcz" href="javascript:;"></a>
+				<a class="app-download" href="javascript:;">手机app下载</a>
+			</span> -->
+
+			<ul class="top-link-wrap">
+				<li><img src="./image/wxcz.gif"></li>
+				<li><a class="app-download" href="javascript:;">手机app下载</a></li>
+				<li>|</li>
+				<li><a style="color: #999" href="javascript:;">代理注册</a></li>
+				<li>|</li>
+				<li><a style="color: #999" href="javascript:;"></a>加入收藏</li>
+				<li>
+					<a style="background-position: 0 -80px;" class="ele-lang-zh-cn" href="javascript:;"></a>
+					<a class="ele-lang-en" href="javascript:;"></a>
+
+				</li>
+			</ul>
+
+		</div>
+	</div>
+	
+	<!-- 头部 -->
+	<div class="header">
+		<div class="container">
+			<div class="venetina-img">
+				<a href="javascript:;">
+					<img src="./image/logo_s96JYBx.png">
+				</a>
+			</div>
+			<div class="login-registered fr">
+				<a class="header-login" href="/WebsiteLearning-master/项目/澳门威尼斯人/login.html">登录</a>
+				<a class="header-registered" href="javascript:;">免费注册</a>
+			</div>
+		</div>
+	</div>
+	<!-- 导航栏 -->
+	<div class="header-navbar">
+		<ul class="game-nav">
+			<li><a href="javascript:;">首页</a></li>
+			<li class="fr"><a class="" href="javascript:;">优惠活动</a></li>
+			<li class="fr"><a class="" href="javascript:;">代理加盟</a></li>
+			<li class="fr"><a class="" href="javascript:;">在线客服</a></li>
+		</ul>
+	</div>
+	<!-- 轮播图 -->
+	<div class="banner-box">
+		<ul>
+		<!-- 	<li style="background: url(https://jaguar-production.azureedge.net/banners/%E9%A6%96%E9%A1%B5%E6%B5%B7%E6%8A%A5-%E6%AC%A2%E8%BF%8E.jpg);"></li>
+			<li style="background: url(https://jaguar-production.azureedge.net/banners/%E6%8D%95%E9%B1%BC_Nsax0QA.jpg);"></li>
+			<li style="background: url(https://jaguar-production.azureedge.net/banners/01.jpg);"></li>
+			<li></li>
+			<li></li> -->
+		</ul>
+	</div>
+	<!-- 公告 -->
+	<div class="announcement">
+		
+	</div>
+	
+	<!-- 操作教程区 -->
+	<div class="operating">
+		
+	</div>
+	
+	<!-- slots平台简介 -->
+	<div class="slots">
+		
+	</div>
+
+	<!-- 游戏平台介绍 -->
+	<div class="shortcuts">
+		
+	</div>
+	
+	<!-- 关于威尼斯人 -->
+	<div class="about">
+		
+	</div>
+
+	<!-- 联系方式 -->
+	<div class="contact">
+		
+	</div>
+	
+	<!-- 底部游戏图标 -->
+	<div class="container">
+		
+	</div>
+
+	<!-- 右侧广告 -->
+	<a class="ad" href="javascript:;">
+		
+	</a>
+
+	<!-- 底部 -->
+	<div class="footer">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" onclick="alert('html')">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style>
+
+	* {
+		margin: 0;
+	}
+	#box {
+		background-color: green;
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
+	}
+
+	.red {
+		width: 100px;
+		height: 100px;
+		margin: 100px auto;
+		background-color: red;
+	}
+</style>
+
+<script>
+	
+
+	function rnd(n, m) {
+
+		return parseInt(n + Math.random() * (m - n))
+	}
+
+	var arr = []
+
+	for(var i = 0; i < 100; i++) {
+
+		arr.push({
+			score: rnd(49, 100)
+		})
+
+	}
+
+
+	// 差生 60以下
+	var arrLaji = []
+
+
+	// 普通. 60 - 79
+	var arrCom = []
+
+	// 优秀 80-90
+	var arrYouxiu = []
+
+	// 特别优秀 91 - 100
+	var arrSpe = []
+
+
+	for(var i = 0; i < arr.length; i++) {
+
+		if (arr[i].score < 60) {
+			arrLaji.push(arr[i])
+		} else if (arr[i].score > 90) {
+			arrSpe.push(arr[i])
+		} else if (80 <= arr[i].score <= 90) {
+			arrYouxiu.push(arr[i])
+		} else {
+			arrCom.push(arr[i])
+		}
+	}
+
+	console.log(arrLaji)
+
+
+
+
+	
+</script>
+	<body onclick="alert('body')">
+		<div id="box">
+			<div class="red" id="red"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <link rel="stylesheet" href="../../../2018-4-23/base.css">
+</head>
+<style>
+    .container {
+        width: 520px;
+        height: 280px;
+        margin: 80px auto;
+        margin-bottom: 0;
+        overflow-y: hidden;
+        position: relative;
+    }
+
+    ol {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        /* font-size: 0; */
+    }
+
+    ol li {
+        width: 10px;
+        height: 10px;
+        background: gray;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    ol li.active {
+        background: red;
+    }
+
+    button {
+        width: 20px;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        color: #fff;
+        font-size: 20px;
+        top: 115px;
+    }
+
+    .left {
+        left: 0;
+    }
+
+    .right {
+        right: 0;
+    }
+</style>
+<script>
+    window.onload = function () {
+        var aPics = document.getElementById('picBox').children
+        var aBtns = document.getElementById('btnBox').children
+        var oBox = document.getElementById('container')
+
+        var currentIndex = 0
+
+        for(var i = 0; i < aBtns.length; i++) {
+            aBtns[i].index = i
+            aBtns[i].onmouseenter = function () {
+                currentIndex = this.index
+                for(var i = 0; i < aBtns.length; i++) {
+                    aBtns[i].className = ''
+                    aPics[i].style.display = 'none'
+                }
+
+                this.className = 'active'
+
+                aPics[this.index].style.display = 'block'
+            }
+        }
+
+
+        var t = setInterval(function () {
+            currentIndex++
+
+            if (currentIndex == aBtns.length) {
+                currentIndex = 0
+            }
+
+            for(var i = 0; i < aBtns.length; i++) {
+                aBtns[i].className = ''
+                aPics[i].style.display = 'none'
+            }
+
+
+            aBtns[currentIndex].className = 'active'
+            aPics[currentIndex].style.display = 'block'
+
+        }, 1200)
+
+
+
+        oBox.onmouseenter = function () {
+            clearInterval(t)
+        }
+
+        oBox.onmouseleave = function () {
+            t = setInterval(function () {
+                currentIndex++
+
+                if (currentIndex == aBtns.length) {
+                    currentIndex = 0
+                }
+
+                for(var i = 0; i < aBtns.length; i++) {
+                    aBtns[i].className = ''
+                    aPics[i].style.display = 'none'
+                }
+
+
+                aBtns[currentIndex].className = 'active'
+                aPics[currentIndex].style.display = 'block'
+
+            }, 1200)
+
+        }
+
+
+
+        document.getElementById('right').onclick = function () {
+            currentIndex++
+
+            if (currentIndex == aBtns.length) {
+                currentIndex = 0
+            }
+
+            for(var i = 0; i < aBtns.length; i++) {
+                aBtns[i].className = ''
+                aPics[i].style.display = 'none'
+            }
+
+
+            aBtns[currentIndex].className = 'active'
+            aPics[currentIndex].style.display = 'block'
+        }
+
+
+        document.getElementById('left').onclick = function () {
+            currentIndex--
+
+            if (currentIndex < 0) {
+                currentIndex = aBtns.length - 1
+            }
+
+            for(var i = 0; i < aBtns.length; i++) {
+                aBtns[i].className = ''
+                aPics[i].style.display = 'none'
+            }
+
+
+            aBtns[currentIndex].className = 'active'
+            aPics[currentIndex].style.display = 'block'
+        }
+
+    }
+</script>
+<body>
+    <div class="container" id="container">
+        <button id="left" class="left"><</button>
+        <button id="right" class="right">></button>
+        <ul class="pic-box" id="picBox">
+            <li><img src="./images/0.jpg" alt=""></li>
+            <li><img src="./images/1.jpg" alt=""></li>
+            <li><img src="./images/2.jpg" alt=""></li>
+            <li><img src="./images/3.jpg" alt=""></li>
+            <li><img src="./images/4.jpg" alt=""></li>
+        </ul>
+        <ol id="btnBox">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+</body>
+</html>

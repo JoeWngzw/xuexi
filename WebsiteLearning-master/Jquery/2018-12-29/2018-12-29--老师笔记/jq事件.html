@@ -1,0 +1,57 @@
+				
+<html>
+	<head>
+		<title></title>
+	</head>
+
+	<style>
+		
+		#div1 {
+			height: 200px;
+			width: 100px;
+			background-color: red;
+		}
+		div#div1 {
+
+		}
+	</style>
+	<script src="./jquery.js"></script>
+
+	<script>
+		// 
+
+
+		$(document).ready(function () {
+
+			var oDiv = document.getElementById('div1')
+
+			// oDiv.onclick = function () {
+			// 	alert(1)
+			// }
+
+			// oDiv.onclick = function () {
+			// 	alert(2)
+			// }
+
+
+
+			$('#div1').click(function(event) {
+				alert(1)
+			});
+
+
+			$('#div1').click(function(event) {
+				alert(2)
+			});
+
+		
+		})
+
+	
+	</script>
+	<body>
+		<div id="div1" class="">
+
+		</div>
+	</body>
+</html>

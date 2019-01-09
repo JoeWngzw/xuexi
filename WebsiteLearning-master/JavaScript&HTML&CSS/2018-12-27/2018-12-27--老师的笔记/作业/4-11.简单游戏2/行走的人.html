@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="大牙培训 - "/>
+    <meta name="copyright" content="大牙培训 - "/>
+    <meta name="description"
+          content="大牙培训是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，为你带来全新的学习方法和快乐的学习体验。"/>
+    <title>大牙培训</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 300px;
+            height: 300px;
+            margin: 30px auto;
+            border: 10px solid green;
+            position: relative;
+        }
+
+        #box img {
+            position: absolute;
+            top: 0;
+            left: 250px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+	        var oBox=document.getElementById('box');
+            var oImg=document.getElementById('img1');
+
+            var n=0;
+            var top=0;
+            var timer=null;
+            timer=setInterval(function(){
+                n++;
+                top+=10;
+
+                oImg.src='pic'+(n%3+1)+'.png';
+                oImg.style.left=250-top+'px';
+                oImg.style.top=top+'px';
+
+                if(top>=250){
+                    clearInterval(timer);
+                    oImg.src='pic1.png';
+                }
+            },100);
+        }
+    </script>
+</head>
+
+<body>
+<div id="box">
+    <img src="pic1.png" id="img1">
+</div>
+</body>
+</html>

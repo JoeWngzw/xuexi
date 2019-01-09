@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+	
+<style type="text/css">
+	*{
+		/*margin: 0;
+		padding: 0;*/
+
+	}
+</style>
+
+<script type="text/javascript">
+	window.onload = function (){
+		var btn = document.getElementById('btn');
+
+	var it = document.getElementById('it');
+
+
+	var n = 0;
+
+	btn.onclick = function(){
+		if(n % 2 == 0){
+			it.type = 'text';
+			btn.innerHTML = '显示密码';
+		}else{
+			it.type = 'password';
+			btn.innerHTML = '隐藏密码';
+		}
+		n++;
+	}
+
+	}
+	</script>
+<body>
+	<input id="it" type="password" name="">
+	<button id="btn">隐藏密码</button>
+</body>
+</html>

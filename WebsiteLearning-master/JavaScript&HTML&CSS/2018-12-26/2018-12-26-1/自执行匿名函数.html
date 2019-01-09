@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+	button.active {
+		background: green;
+		color: #fff
+	}
+
+	div {
+		width: 230px;
+		height: 180px;
+		border: 1px solid black;
+		display: none;
+		text-align: center;
+		line-height: 180px;
+	}
+	
+
+
+
+</style>
+<script type="text/javascript">
+	window.onload = function () {
+		var aBtns = document.getElementsByTagName('button')
+		var oCons = document.getElementsByTagName('div')
+
+		// this 的指定完全是看 当前函数作用域的对象是谁
+		// for(var i = 0; i < aBtns.length;i++) {
+		// 	aBtns[i].index = i
+		// 	aBtns[i].onclick = function () {
+		// 		for(var j = 0; j < aBtns.length; j++) {
+		// 			aBtns[j].className = ''
+		// 			oCons[j].style.display = 'none'
+		// 		}
+		// 		this.className = 'active'
+		// 		oCons[this.index].style.display = 'block'
+		// 	}
+		// }
+
+			;(function (index) {
+				var index= 0
+				aBtns[index].onclick = function () {
+					for(var j = 0; j < aBtns.length; j++) {
+						aBtns[j].className = ''
+						oCons[j].style.display = 'none'
+					}
+
+					this.className = 'active'
+
+					oCons[index].style.display = 'block'
+				}
+			})(0)
+
+
+			;(function (index) {
+				var index= 1
+				aBtns[index].onclick = function () {
+					for(var j = 0; j < aBtns.length; j++) {
+						aBtns[j].className = ''
+						oCons[j].style.display = 'none'
+					}
+
+					this.className = 'active'
+
+					oCons[index].style.display = 'block'
+				}
+			})(1)
+
+
+			;(function (index) {
+				var index= 2
+				aBtns[2].onclick = function () {
+					for(var j = 0; j < aBtns.length; j++) {
+						aBtns[j].className = ''
+						oCons[j].style.display = 'none'
+					}
+
+					this.className = 'active'
+
+					oCons[index].style.display = 'block'
+				}
+			})(2)
+
+	}
+</script>
+<body>
+	<button class="active">新闻</button>
+	<button>热点</button>
+	<button>娱乐</button>
+
+
+	<div style="display: block;">我是新闻</div>
+	<div>我是热点</div>
+	<div>我是娱乐</div>
+</body>
+</html>

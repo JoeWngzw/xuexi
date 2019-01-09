@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+
+
+	
+	var str = 'red blue red yellow'
+
+
+	var arr = str.split(' ')
+
+	console.log(arr)
+
+
+	var str2 = '198028888'
+
+	var arr2 = str2.split('')
+
+	console.log(arr2)
+
+	var str3 = 'uid=2&name=member1&pwd=123456&qrcode=323232'
+
+	var arr3 = str3.split('&')
+
+	 // ["uid=2", "name=member1", "pwd=123456", "qrcode=323232"]
+
+
+
+	function arrToObj(arr) {
+
+		var obj = {}
+		
+		for(var i = 0; i < arr.length; i++) {
+
+			var key = arr[i].split('=')[0]
+			var val = arr[i].split('=')[1]
+
+			obj[key] = val
+		}
+		return obj
+	}
+
+	var o = arrToObj(arr3)
+
+	console.log('arrToObj')
+	console.log(o)
+
+	// var obj = {
+	// 	"uid": '2',
+	// 	"name": 'member1',
+	// 	"pwd": '123456',
+	// 	"qrcode": '323232'
+	// }
+
+
+	console.log(arr3)
+
+</script>
+<body>
+
+</body>
+</html>

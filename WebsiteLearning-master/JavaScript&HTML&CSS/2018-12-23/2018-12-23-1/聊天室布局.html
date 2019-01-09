@@ -1,0 +1,90 @@
+<html>
+	<head>
+		<title>滚动加载-大牙培训</title>
+	</head>
+	
+	<style>
+		* {
+			margin : 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+		.clearfix{*+height:1%;}
+
+		li {
+			width: 100px;
+			margin-top: 13px;
+		}
+
+		ul {
+			padding: 10px;
+			border: 1px solid #ccc;
+			float: left;
+			margin-left: 20px;
+		}
+
+	</style>
+	<script>
+
+
+		// function rnd (n, m) {
+		// 	return parseInt(n + Math.random() * (m - n))
+		// }
+		// window.onload = function () {
+
+
+		// 	var aUl = document.getElementsByTagName('ul');
+
+
+		// 	function create20Li () {
+		// 		for(var i = 0; i < 30; i++) {
+		// 			var oLi = document.createElement('li');
+
+		// 			oLi.style.backgroundColor = 'rgb('+rnd(0, 255)+', '+rnd(0, 255)+', '+rnd(0, 255)+')';
+
+		// 			oLi.style.height = rnd(80, 130) + 'px'
+
+		// 			//. aUl[0].appendChild(oLi)
+
+		// 			var arr = [aUl[0], aUl[1], aUl[2]]
+
+
+		// 			arr.sort(function (ul1, ul2) {
+		// 				return ul1.offsetHeight - ul2.offsetHeight
+		// 			})
+
+		// 			arr[0].appendChild(oLi)
+		// 		}
+		// 	}
+
+		// 	create20Li()
+
+		// 	var clientH = document.body.clientHeight
+		// 	window.onscroll = function () {
+		// 		console.log('鼠标滚动了')
+		// 		var scrollH = document.documentElement.scrollHeight || document.body.scrollHeight
+
+		// 		var scrollT = document.documentElement.scrollTop || document.body.scrollTop
+
+		// 		console.log('当前滚了多高 ' + scrollT)
+
+		// 		console.log('clientH ' + clientH)
+
+		// 		console.log('scrollH ' + scrollH)
+		// 		if (scrollT + clientH >  scrollH - 100) {
+
+		// 			setTimeout(function () {
+		// 				create20Li()
+		// 			}, 2000)
+		// 		}
+
+		// 	}
+		// }
+	</script>
+
+	<body>
+		
+	</body>
+</html>

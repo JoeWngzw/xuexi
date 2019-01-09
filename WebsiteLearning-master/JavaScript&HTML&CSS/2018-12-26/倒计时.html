@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		window.onload = function(){
+
+			var div1 = document.getElementById('div1');
+
+			function djs() {
+				var dqsj = new Date(); // 当前时间
+
+				var wlsj = new Date();  //未来时间
+
+				wlsj.setFullYear(2019,0,1);
+				wlsj.setHours(14,50,15);
+
+				var aa = wlsj.getTime() - dqsj.getTime();
+
+				var ts = Math.floor(aa / (24 * 60 * 60 * 1000)); //天数
+
+				aa = aa % (24*60 * 60 * 1000);
+
+				var xs = Math.floor(aa / (60 * 60 * 1000)); // 小时
+
+				aa = aa % (60*60 * 1000); 
+
+				var min = Math.floor(aa / (60 * 1000)); // 分
+
+				aa = aa % (60*1000); 
+
+				var miao = Math.floor(aa / 1000); // 秒
+
+				div1.innerHTML = ''+ts+'天'+xs+'小时'+min+'分'+miao+'秒';
+
+			}
+			
+			djs();
+
+
+			var int = setInterval(djs,1000);
+
+	
+		}
+
+		
+
+
+	</script>
+</head>
+<body>
+	<div id="div1">18天11小时50分55秒</div>
+</body>
+</html>

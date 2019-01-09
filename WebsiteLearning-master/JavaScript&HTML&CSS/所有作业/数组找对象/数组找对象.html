@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+	
+	
+	var aa = "uid=11&name=joe&pwd=7866889"; 
+
+	var cc = aa.split('&');
+
+	var obj = {
+		uid:'',
+		name:'',
+		pwd:''
+	}
+
+	for (var i = 0; i < cc.length; i++) {
+		var bb  = cc[i].split('=');
+		var key = bb[0];
+		var val = bb[1];
+
+		obj[key] = val;
+		console.log(key+':'+val);
+
+	}
+
+	// for(var ss in obj){
+	// 	console.log(ss);
+	// }
+
+</script>
+<body>
+	
+</body>
+</html>

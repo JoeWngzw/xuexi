@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+
+    </style>
+    <script>
+        /**
+         *  随机数函数
+         * @param n 最小值
+         * @param m 最大值
+         * @returns {*}
+         */
+        function rnd(n, m){
+            return parseInt(Math.random()*(m-n))+n;
+        }
+        /**
+         *
+         * @param n
+         * @param arr
+         * @returns {boolean}
+         */
+        function findInArr(n, arr){
+            for(var i=0; i<arr.length; i++){
+                if(n==arr[i])return true;
+            }
+            return false;
+        }
+        // 补零
+        function toDouble(n){
+            return n<10?'0'+n:''+n;
+        }
+        window.onload = function () {
+            var arr=[];
+
+            for(var i=0; i<6; i++){
+                var n=toDouble(rnd(1, 34));
+
+                if(findInArr(n, arr)==false){
+                    arr.push(n);
+                }else{
+                    alert('重复了');
+                    i--;
+                }
+            }
+            document.write(arr);
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

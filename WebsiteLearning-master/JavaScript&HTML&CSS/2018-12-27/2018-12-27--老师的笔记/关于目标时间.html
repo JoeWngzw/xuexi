@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var date = new Date() // 只能拿到自己电脑上的系统时间 => 有误差
+
+            var oYear = date.getFullYear() // year
+
+            var oMonth = date.getMonth() + 1
+
+            var oDay = date.getDate()
+
+            var oHour = date.getHours()
+
+            var oMin = date.getMinutes()
+
+            var oSec = date.getSeconds()
+
+            var oMiniSec = date.getMilliseconds()
+
+
+
+            alert('现在几点了 ' + oHour)
+
+            alert('现在几分 ' + oMin)
+
+            alert('现在几秒 ' + oSec)
+
+            alert('现在多少毫秒 ' + oMiniSec)
+
+
+            alert('今天多少号 ' + oDay)
+
+            alert('month ' + oMonth)
+
+        };
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

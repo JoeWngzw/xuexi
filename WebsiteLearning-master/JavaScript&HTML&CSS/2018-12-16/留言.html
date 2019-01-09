@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script type="text/javascript">
+		// function nn(a,f){
+		// 	return function(){
+		// 		return f()+a;
+		// 	}
+		// }
+
+		// var c = nn(1,function(){
+		// 	return 9;
+		// })();
+
+		// alert(c);
+
+		window.onload =function(){
+		var ly = document.getElementById('ly');
+		var bt = document.getElementById('bt');
+		var oul = document.getElementById('oul');
+
+		bt.onclick = function(){
+			var val = ly.value;
+
+			var li = document.createElement('li');
+			li.innerHTML= val;
+
+			oul.appendChild(li);
+
+			// oul.children[0].unshift(val)
+			ly.value='';
+		}
+
+}
+
+
+	</script>
+</head>
+<body>
+	<input id="ly" type="text" name="" placeholder="请文明留言">
+	<button id="bt">留言</button>
+
+	<ul id="oul">
+		
+	</ul>
+</body>
+</html>

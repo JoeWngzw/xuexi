@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.box div {
+			width: 200px;
+			height: 220px;
+			border:  1px solid #ccc;
+			display: none;
+		}
+
+		.box div.active {
+			display: block;
+		}
+		button {
+			padding: 4px 8px;
+		}
+
+		button.active {
+			background-color: green;
+			color: #fff;
+		}
+
+	</style>
+
+	<script>
+	
+		window.onload = function () {
+			var aBtns = document.getElementsByTagName('button');
+
+			var aDivs = document.getElementById('box').children;
+
+			var oBox = document.getElementById('tab')
+
+			var n = 0; // n 帮我们记录当前谁是active
+
+			for(var i =0; i < aBtns.length;i++) {
+				aBtns[i].index = i
+				aBtns[i].onclick = function () {
+					for(var i = 0; i < aBtns.length; i++) {
+						aBtns[i].className = ''
+						aDivs[i].className = ''
+					}
+
+					n = this.index
+					this.className = 'active'
+					aDivs[this.index].className = 'active'
+				}
+			}
+
+
+			function tabChange () {
+				n = n + 1
+				for(var i = 0; i < aBtns.length; i++) {
+					aBtns[i].className = ''
+					aDivs[i].className = ''
+				}
+
+				if (n == aBtns.length) {
+					n = 0
+				}
+
+				aBtns[n].className = 'active'
+				aDivs[n].className = 'active'
+			}
+
+			var t = setInterval(tabChange, 2000)
+
+			oBox.onmouseover = function () {
+				clearInterval(t)
+			}
+
+			oBox.onmouseout = function () {
+				t = setInterval(tabChange, 2000)
+			}
+		}
+	</script>
+
+	<body>
+		<div class="tab-change" id="tab">
+			<button class="active">新闻</button>
+			<button>热点</button>	
+			<button>娱乐</button>
+
+			<div class="box" id="box">
+				<div class="active">我是新闻</div>
+				<div>我是热点</div>
+				<div>我是娱乐</div>
+			</div>
+		</div>
+		
+	</body>		
+		
+</html>

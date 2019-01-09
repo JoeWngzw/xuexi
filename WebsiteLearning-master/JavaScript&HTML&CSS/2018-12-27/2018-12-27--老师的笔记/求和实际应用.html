@@ -1,0 +1,47 @@
+<html>
+	<head>
+		
+	</head>
+	<style>
+		
+	</style>
+	<script>
+	
+
+		window.onload = function () {
+
+			var oSpan = document.getElementById('oSp')
+			var classA = [{
+				name: 'A',
+				fee: 120
+			}, {
+				name: 'B',
+				fee: 110
+			}, {
+				name: 'xiaohong',
+				fee: -200
+			}, {
+				name: 'c',
+				fee: 88
+			}]
+
+			// var total = classA[0].fee + classA[1].fee + classA[2].fee + classA[3].fee 
+
+			var total = 0
+			for(var i = 0; i < classA.length; i++) {
+
+				total = total + classA[i].fee
+			}
+			
+
+			oSpan.innerHTML = total
+
+		}
+	</script>
+	<body>
+		<div>
+			我们班所有学生的学费是
+			<span id="oSp"></span>
+		</div>
+	</body>
+</html>

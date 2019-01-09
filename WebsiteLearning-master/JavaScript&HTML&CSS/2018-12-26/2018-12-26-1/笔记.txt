@@ -1,0 +1,251 @@
+笔记
+
+return：
+    函数的返回值
+    有什么用：
+        返回一个值，给函数调用者使用
+
+    1、return之后的语句不执行
+    2、如果没有写return返回值是undefined，如果写了没有给值也是undefined
+
+undefined：
+1、函数没有return或者写了return没有给值
+2、定义变量不赋值
+3、访问一个对象不存在的属性
+
+属性操作：
+1、.
+    操作已知属性
+2、[]
+    可以操作变量
+
+随机数：
+    Math.random();
+        0-1之间的随机数(包括0不包括1)
+    n-m之间的随机数：
+        parseInt(Math.random()*(m-n))+n
+    // 随机数函数
+    function rnd(n, m){
+        return parseInt(Math.random()*(m-n))+n;
+    }
+
+    div随机变色：
+        rgb('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+');
+    双色球：
+        1、1-33
+            rnd(1,34);
+        2、不重复
+            // 判断一个数组当中是否存在这个数
+            // return true -> 存在
+            // return false -> 不存在
+            function findInArr(n, arr){
+                for(var i=0; i<arr.length; i++){
+                    if(n==arr[i])return true;
+                }
+                return false;
+            }
+        3、6个红球
+            i). arr.length<6
+            ii). 如果重复了，我就让当次循环作废
+                i--;
+        4、补零
+            function toDouble(n){
+                return n<10?'0'+n:''+n;
+            }
+
+-------------------------------
+
+命名
+缩进
+注释
+
+-------------------------------
+
+数据类型(6种)：
+    字符串  string
+    数字    number
+    布尔值  boolean
+    对象    object
+    函数    function
+    undefined undefined
+
+类型转换：
+    parseInt
+        取整
+    parseFloat
+        小数
+    Number
+        数字
+
+    NaN(not a number)：
+        不等于任何值包括自己
+        数据类型是 number
+        isNaN -> 是不是NaN
+
+-------------------------------
+
+定时器(每过一段时间干一件什么事)：
+    setInterval(函数, 时间);
+        时间单位是：毫秒
+            1s=1000ms;
+    setInterval(函数, 1000);
+
+    setInterval(function(){
+        alert(1);
+    }, 1000);
+
+    秒表：
+        1、先让他跑起来
+            setInterval(function(){
+
+            },1000);
+        2、看起来像一个真的秒表
+            00:00
+            parseInt(n/60)+':'+n%60;
+        3、补零
+            function toDouble(n){
+                return n<10?'0'+n:''+n;
+            }
+            toDouble(parseInt(n/60))+':'+toDouble(n%60);
+        4、暂停
+            var timer;
+            timer=setInterval();
+            clearInterval(timer);
+        5、一开始会卡一下
+            拎出来单独执行一下
+        6、使用定时器之前应该先关闭在开启
+            clearInterval(timer);
+            timer=setInterval();
+
+    另一个定时器：
+        setTimeout() -> 只会执行一次
+
+        clearTimeout();
+
+    setInterval();     每过一段时间就会执行一次
+        clearInterval();
+    setTimeout();      只会执行一次
+        clearTimeout();
+
+-------------------------------
+
+关于日期：
+    var oDate=new Date();
+
+    oDate.getFullYear();  // 年
+    oDate.getMonth();     // 月 从0开始
+    oDate.getDate();      // 日
+    oDate.getDay();       // 星期
+        星期天 0
+
+    oDate.getHours();     // 小时
+    oDate.getMinutes();   // 分钟
+    oDate.getSeconds();   // 秒
+    oDate.getMilliseconds(); // 毫秒
+
+    文字时钟：
+        1、先获取时间
+        2、开一个定时器
+            setInterval(function, 1000);
+        3、在定时器里面获取时间
+        4、一开始卡一下
+            拎出来单独执行一下
+
+    图片时钟：
+        1、访问字符串的某一项
+            str.charAt(x) -> x从0开始
+        2、跑起来
+            setInterval(function(){},1000);
+        3、卡一下
+            拎出来单独执行一下
+    倒计时：
+        目标时间
+        当前时间
+        1、怎么求出来当前时间距离目标时间的秒数
+        2、参考值
+            时间戳
+            oDate.getTime();
+            1460442799174
+            1970年1月1日到目前为止的毫秒数
+        3、怎么求目标时间距离1970年1月1日的毫秒数
+            设置时间
+            oDate.setFullYear(年, 月, 日);
+                月 从0开始
+            oDate.setHoures(小时, 分钟, 秒, 毫秒);
+
+
+arr.push(); 往数组最后添加一项
+
+------------------------------------
+
+自动播放选项卡：
+    1、选项卡
+    2、带箭头
+        var n=0;
+        右 n++;
+            if(n>aBtn.length-1)n=0;
+        左 n--;
+            if(n<0)n=aBtn.length-1;
+    3、next
+       prev
+       开了一个定时器执行next
+       setInterval(next, 1000);
+    4、鼠标移上去关闭定时器
+            clearInterval(timer);
+       离开重新开启定时器
+            timer=setInterval();
+
+------------------------------------
+
+秒表
+    timer=setInterval();
+        clearInterval(timer);
+    timer=setTimeout();       
+        clearTimeout(timer);
+文字时钟
+    关于时间
+    怎么获取
+    怎么设置
+
+    时间戳：
+        oDate.getTime();
+
+    开一个定时器让时间跑起来
+图片时钟
+    和文字时钟大体一致
+    str.charAt(x) -> x从0开始
+倒计时
+    怎么设置时间
+
+自动播放选项卡
+    选项卡
+    带箭头的选项卡
+    开一个定时器让next执行
+    setInterval(next, 1000);
+
+------------------------------------
+
+作业：
+    * 课上例子5个
+    4-1. 闪烁
+    4-2. 输入框倒计时
+    4-3. 淘宝短信发送倒计时
+    4-4. 拍卖倒计时
+    4-5. 苏宁延迟选项卡
+    4-6. 按住鼠标连续加减
+    4-7. 超酷数码钟表
+    5-6. 淘宝幻灯片
+
+    4-10.简单游戏     思考题
+    4-11.简单游戏2    思考题
+
+
+
+
+
+
+
+
+
+
+

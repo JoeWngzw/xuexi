@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤</title>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script type="text/javascript">
+		
+		function sjs(n,m){
+			return parseInt(n + (Math.random() * (m-n)));
+		}
+
+		var arrt = [];
+
+		for (var i = 0; i < 100; i++) {
+			arrt.push(sjs(41,101));
+		}
+
+		var ss =  arrt.filter(function(index) {
+			
+			// if(  arrt[i] >=80 && arrt[i] <=90){
+			// 	return  80 < index;
+			// }
+
+			return  index >=80 && index <=90;
+		});
+
+		console.log(ss);
+
+		// var dd = [];  // 80 -90 ;
+		// for (var i = 0; i < 100; i++) {
+		// 	if(  arrt[i] >=80 && arrt[i] <=90){
+		// 		dd.push(arrt[i]);
+		// 	}
+		// }
+
+		// console.log(dd);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

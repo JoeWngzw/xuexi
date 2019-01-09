@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+    <script>
+        function toDouble(n){
+            return n<10?'0'+n:''+n;
+        }
+        window.onload = function () {
+            var oDiv=document.getElementById('div1');
+            // 目标时间距离1970年的毫秒数
+            var oDate=new Date();
+            oDate.setFullYear(2018, 1, 1);
+            oDate.setHours(0, 0, 0, 0);
+
+            var target=oDate.getTime();
+
+
+            setInterval(countdown, 1000);
+
+            function countdown(){
+                // 当前时间
+                var oDate2=new Date();
+                var now=oDate2.getTime();
+
+                // 差值
+                var n=parseInt((target-now)/1000);  // 总共的秒数
+                // 天
+                var d=toDouble(parseInt(n/86400));
+                // 小时
+                n%=86400;
+                var h=toDouble(parseInt(n/3600));
+                // 分钟
+                n%=3600;
+                var m=toDouble(parseInt(n/60));
+                // 秒
+                n%=60;
+
+                oDiv.innerHTML=d+'天'+h+'小时'+m+'分'+toDouble(n)+'秒';
+            }
+            countdown();
+
+        };
+    </script>
+</head>
+<body>
+当前距离新年还有
+<div id="div1">10天3小时45分23秒</div>
+</body>
+</html>

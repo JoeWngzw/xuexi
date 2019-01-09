@@ -1,0 +1,10 @@
+盒模型：盒子模型宽 = width + padding-left + padding+right + border-left-width + border-right-width
+
+
+
+盒模型面积 = 盒子模型宽 * 盒子模型高
+
+
+background-color铺满 盒模型面积， 内容部分不含padding
+
+

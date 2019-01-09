@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+        #box input.active{
+            background: #34495e;
+        }
+        #box div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            display: none;
+        }
+        #box div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input class="active" type="button" value="1111">
+        <input type="button" value="2222">
+        <input type="button" value="3333">
+
+        <div class="active">aaaaa</div>
+        <div>bbbbb</div>
+        <div>ccccc</div>
+    </div>
+</body>
+</html>

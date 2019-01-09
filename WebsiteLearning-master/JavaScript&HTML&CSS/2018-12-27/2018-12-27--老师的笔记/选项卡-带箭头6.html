@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: absolute;
+            left: 200px;
+            top: 50px;
+        }
+        #box p{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        #box div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            display: none;
+            margin: 10px 0 0 0 ;
+        }
+        #box div.active{
+            display: block;
+        }
+        #box input{
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            border: 0;
+        }
+        #box input.active{
+            background: #4baaff;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+            var oBox=document.getElementById('box');
+            var aBtn=oBox.getElementsByTagName('input');
+            var aDiv=oBox.getElementsByTagName('div');
+            var oLeft=document.getElementById('left');
+            var oRight=document.getElementById('right');
+
+            var iNow = 0
+
+    
+
+           for(var i = 0; i < aBtn.length; i++) {
+
+                aBtn[i].index = i
+                aBtn[i].onclick = function () {
+                    // aBtn[0].className = ''
+                    // aBtn[1].className = ''
+                    // aBtn[2].className = ''
+
+                    for(var i = 0; i < aBtn.length; i++) {
+                        aBtn[i].className = ''
+                        aDiv[i].className = ''
+                    }
+
+                    this.className = 'active'
+                    aDiv[this.index].className = 'active'
+                }
+           }
+
+           function toRight () {
+                iNow = iNow + 1
+                for(var i = 0; i < aBtn.length; i++) {
+                    aBtn[i].className = ''
+                    aDiv[i].className = ''
+                }
+
+                if (iNow == aBtn.length) {
+                    iNow = 0
+                }
+
+                aBtn[iNow].className = 'active'
+                aDiv[iNow].className = 'active'
+
+           }
+
+           var t = setInterval(function () {
+                toRight()
+           }, 1000)
+
+           oLeft.onclick = function () {
+
+                clearInterval(t)
+                t = setInterval(function () {
+                    iNow = iNow - 1
+                    for(var i = 0; i < aBtn.length; i++) {
+                        aBtn[i].className = ''
+                        aDiv[i].className = ''
+                    }
+
+                    if (iNow == -1) {
+                        iNow = aBtn.length - 1
+                    }
+                    aBtn[iNow].className = 'active'
+                    aDiv[iNow].className = 'active'
+               }, 1000)
+           }
+
+
+           oRight.onclick = function () {
+                // 0 1000ms 2000ms 3000ms
+                // 2ms 1002ms 2002ms 3002ms
+                clearInterval(t)
+                t = setInterval(function () {
+                  toRight()
+
+               }, 1000)
+           }
+        };
+    </script>
+</head>
+<body>
+<div id="box">
+    <p>
+        <a href="javascript:;" id="left">←</a>
+        <a href="javascript:;" id="right">→</a>
+    </p>
+    <input class="active" type="button" value="1111">
+    <input type="button" value="2222">
+    <input type="button" value="3333">
+
+    <div class="active">aaaa</div>
+    <div>bbbb</div>
+    <div>cccc</div>
+</div>
+</body>
+</html>

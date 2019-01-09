@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style>
+	div {
+		background-color: green;
+		width: 300px;
+		height: 300px;
+	}
+</style>
+
+<script>
+	window.onload = function () {
+		var oDiv = document.getElementById('box');
+
+		// oDiv.onclick = function () {
+		// 	alert(1)
+		// }
+
+		// oDiv.onclick = function () {
+		// 	alert(2)
+		// }
+
+
+		oDiv.addEventListener('click', function () {
+			alert(1)
+		}, false)
+
+
+		oDiv.addEventListener('click', function () {
+			alert(2)
+		}, false)
+
+	}
+</script>
+<body>
+	<div id="box">
+		
+	</div>
+</body>
+</html>

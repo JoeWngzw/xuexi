@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" onclick="alert('html')">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style>
+
+	* {
+		margin: 0;
+	}
+	#box {
+		background-color: green;
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
+	}
+
+	.red {
+		width: 100px;
+		height: 100px;
+		margin: 100px auto;
+		background-color: red;
+	}
+</style>
+
+
+<script src="./jquery.js"></script>
+
+<script>
+	$(function () {
+
+		console.log($('p'))
+
+		$('p').each(function(index, el) {
+
+			console.log($(el).html())
+		});
+		
+	})
+</script>
+
+
+	<body onclick="alert('body')">
+		<p>p1</p>
+		<p>p2</p>
+		<p>p3</p>
+		<p>p4</p>
+		<p>p5</p>
+		<p>p6</p>
+		<p>p7</p>
+		<p>p8</p>
+	</body>
+</html>

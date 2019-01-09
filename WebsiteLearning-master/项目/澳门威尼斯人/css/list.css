@@ -1,0 +1,145 @@
+body {
+	background-color: #2a2c3b;
+}
+.main{
+	max-width: 1000px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.header{
+/*	background-color: red;
+*/	width: 100%;
+}
+.fl-nav li{
+	float: left;
+	color: #fff;
+	padding:10px 20px;
+}
+.fr-nav li{
+	float: right;
+	color: #fff;
+	padding:10px 20px;
+}
+
+.list-bg{
+		height: 210px;
+	background: url("http://127.0.0.1:3000/WebsiteLearning/Jquery/2019-1-1/marty/images/banner.jpg") no-repeat center;
+
+	
+}
+
+.game{
+	width: 1000px;
+	background-color: #313345;
+	margin: 0 auto;
+}
+
+.game-fl li{
+	float: left;
+	padding: 10px 30px;
+	color: #fff;
+	border: 1px solid #3b3d50;
+}
+
+.div-search input,.div-search button{
+	height: 32px;
+	float: right;
+	border: none;
+}
+
+.div-search button{
+	height: 32px;
+	width: 40px
+}
+.game-ty li{
+	display: inline-block;
+    padding: 5px 12px;
+    color: #fff;
+    margin: 10px 5px;
+}
+.game-list-ul li{
+	display: inline-block;
+/*	padding: 20px 15px;
+*/	border: 3px solid #3b3d50;
+	margin: 5px 10px; 
+}
+
+.game-list-ul li.active{
+	border: 3px solid #ccc;
+}
+
+.game-list-ul img{
+	width: 170px;
+	height: 140px;
+}
+
+.game-list-ul a{
+	display: inline-block;
+	width: 170px;
+	height: 178px;
+}
+.game-list-ul p{
+	text-align: center;
+	color: #8d8d93;
+	background-color: #3b3d50;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+}
+
+.page-ul{
+	text-align: center;
+	margin-top: 10px;
+}
+
+.page-ul li{
+	display: inline-block;
+	background-color: #3b3d50;
+	font-size: 12px;
+	color: #ccc;
+	padding:5px 10px;
+	border-radius: 3px;
+}
+
+.page-ul li.active{
+	color: #3b3d50;
+	background-color: #ccc;
+}
+
+
+.games .inner {
+    width: 800px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.game-list {
+    width: 800px;
+    margin: 0 auto 20px;
+    padding: 20px 0;
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.m-t {
+    margin-top: 20px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    display: none;
+}
+
+.categoryNav p{
+    color: #fff;
+    margin-top: -25px !important;
+    text-align: center;
+}

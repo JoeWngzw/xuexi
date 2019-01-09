@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box{
+            width: 865px;
+            height: 320px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        #content{
+            width: 715px;
+            float: left;
+        }
+        #list{
+            width: 150px;
+            background: #000;
+            float: right;
+        }
+        #list li{
+            height: 80px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #list li.active{
+            position: relative;
+            left: -10px;
+            width: 160px;
+            background: rgb(247,82,140);
+        }
+        #list li.active span{
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-right: 10px solid rgb(247,82,140);
+            border-bottom: 10px solid transparent;
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            margin-top: -10px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+           
+        };
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="content">
+        <img src="images/mogu1.jpg" >
+    </div>
+    <ul id="list">
+        <li class="active">
+            <p>时髦新品</p>
+            <p>天天见</p>
+            <span></span>
+        </li>
+        <li>
+            <p>简约之美</p>
+            <p>约克郡的优雅</p>
+            <span></span>
+        </li>
+        <li>
+            <p>HOLLOW风潮</p>
+            <p>性感一夏</p>
+            <span></span>
+        </li>
+        <li>
+            <p>"公主病万岁"</p>
+            <p>免费游迪斯尼</p>
+            <span></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

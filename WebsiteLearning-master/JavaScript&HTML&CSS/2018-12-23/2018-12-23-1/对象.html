@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.round {
+			width: 60px;
+			height: 60px;
+			border: 1px solid #ccc;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 60px;
+		}
+	</style>
+
+	<script>
+		
+		// js 六大数据类型 1 number 2 string 4 boolean(true, false) 5 undefined 6 function  3 Object(对象) 
+
+		// typeof 
+
+
+		// var person = [1, 2, 3, 4, [[], [], [], []], function () {}, true, ]
+
+
+		var person1 = {
+			color: 'yellow',
+			height: 177,
+			weight: '60kg',
+			language: 'CN',
+			marriged: false,
+			name: '李芳',
+			sex: 'femal',
+			friends: ['xiaohong', 'lilei'],
+			say: function (str) {
+				alert(str)
+			}
+		}
+
+		person1.onclick = function () {
+			alert(2)
+		}
+
+		person1.onclick()
+
+		person1.father = '李磊'
+
+
+		// alert(typeof person1)
+
+		// alert(person1.color)
+
+		// alert(person1.sayHello)
+
+		// arr.push(1)
+
+		alert(person1.friends[0])
+
+		person1.say('lalala')
+
+	</script>
+
+	<body>
+	</body>		
+		
+</html>

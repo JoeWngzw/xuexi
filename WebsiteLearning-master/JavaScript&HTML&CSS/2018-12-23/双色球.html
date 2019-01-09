@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>双色球</title>
+	<script type="text/javascript">
+		//随机数方法
+		function sjshu(n,m){
+			return parseInt((Math.random() * (m-n))+n);
+		}
+
+
+		var arrt = [];
+		var sj;
+		window.onload = function(){
+			for (var i = 0; i < 7; i++) {
+
+				sj = sjshu(1,32);
+				
+				if (!Comparison(sj)) {
+					if(sj<10){
+						sj = '0'+sj;
+					}
+					arrt.push(sj)
+				}else{
+					i--;
+				}
+				
+			}
+
+			document.write(arrt)
+
+		}
+
+		//判断数组中是否有相同的数字
+		function Comparison(sj){
+			for (var i = 0; i < arrt.length; i++) {
+				if(sj == arrt[i]){
+					return true;
+				}
+			}
+			return false;
+
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	a{
+		text-decoration: none;
+		display: inline-block;
+		width: 117px;
+		position: absolute;
+		text-align: center;
+		margin-left: 70px;
+		top: 7px;
+		border-right: 1px solid #313348;
+		color: #c5c5c6;
+	}
+	span{
+		display: inline-block;
+		font-size:13px;
+	}
+	
+	.i1,.i2,.i3,.i4{
+		display: inline-block;
+		width: 58px;
+		height: 58px;
+	}
+	
+
+	.i1{
+		background-image: url('bj.png');
+		background-position: 0 -214px;
+	}
+
+	.i2{
+		background-image: url('bj.png');
+		background-position: -58px -214px;
+	}
+
+	.i3{
+		background-image: url('bj.png');
+		background-position: -116px -214px;
+	}
+
+	.i4{
+		background-image: url('bj.png');
+		background-position: -174px -214px;
+	}
+	
+	div{
+		
+		width: 100%;
+		height:60px;
+		margin-top: 100px;
+		
+		background-color: #313348;
+	}
+
+	ul{
+		
+		
+		height:58px;
+		width: 1100px;
+		max-width: 100%;
+		margin:0 auto;
+/*		background-color:red;
+*/	}
+	ul li i{
+		position: absolute;
+	}
+	ul li{
+		position: relative;
+		width: 15%;
+		margin-left: 100px;
+		display: inline-block;
+		height:60px;
+		max-width: 1200px;
+		/*line-height: 48px;*/
+	}
+</style>
+
+<script type="text/javascript">
+
+	window.onload =function(){
+	var iarry = document.getElementsByTagName('i');
+	var liarry = document.getElementsByTagName('a');
+	console.log(liarry);
+	for (var i = 0; i < iarry.length; i++) {
+		iarry[i].index = i;
+		liarry[i].index = i;
+
+		liarry[i].onmouseover = function(){
+			for (var i = 0; i < liarry.length; i++) {
+
+				if(this.index == 0){
+					iarry[0].style.backgroundPosition = '0 -272px';
+					this.style.color = '#e9d77b';
+			    	this.children[0].style.color = '#e9d77b';
+				}
+				
+				if(this.index == 1){
+					iarry[1].style.backgroundPosition = '-58px -272px';
+					this.style.color = '#e9d77b';
+			    	this.children[0].style.color = '#e9d77b';
+				}
+
+				if(this.index == 2){
+					iarry[2].style.backgroundPosition = '-116px -272px';
+					this.style.color = '#e9d77b';
+			    	this.children[0].style.color = '#e9d77b';
+				}
+
+				if(this.index == 3){
+					iarry[3].style.backgroundPosition = '-174px -272px';
+					this.style.color = '#e9d77b';
+			    	this.children[0].style.color = '#e9d77b';
+				}
+			}
+		}
+
+		liarry[i].onmouseout = function(){
+			for (var i = 0; i < liarry.length; i++) {
+				if(this.index == 0){
+					iarry[0].style.backgroundPosition = '0 -214px';
+					this.style.color = '#ccc';
+					this.children[0].style.color = '#ccc';
+				}
+				if(this.index == 1){
+					iarry[1].style.backgroundPosition = '-58px -214px';
+					this.style.color = '#ccc';
+					this.children[0].style.color = '#ccc';
+				}
+				if(this.index == 2){
+					iarry[2].style.backgroundPosition = '-116px -214px';
+					this.style.color = '#ccc';
+					this.children[0].style.color = '#ccc';
+				}
+				if(this.index == 3){
+					iarry[3].style.backgroundPosition = '-174px -214px';
+					this.style.color = '#ccc';
+					this.children[0].style.color = '#ccc';
+				}
+
+			}
+		}
+
+		iarry[i].onmouseover = function(){
+			for (var i = 0; i < iarry.length; i++) {
+				if(this.index == 0){
+					this.style.backgroundPosition = '0 -272px';
+				}
+				if(this.index == 1){
+					this.style.backgroundPosition = '-58px -272px';
+				}
+				if(this.index == 2){
+					this.style.backgroundPosition = '-116px -272px';
+				}
+				if(this.index == 3){
+					this.style.backgroundPosition = '-174px -272px';
+				}
+				
+			}
+		}
+
+		iarry[i].onmouseout = function(){
+			for (var i = 0; i < iarry.length; i++) {
+				if(this.index == 0){
+					this.style.backgroundPosition = '0 -214px';
+				}
+				if(this.index == 1){
+					this.style.backgroundPosition = '-58px -214px';
+				}
+				if(this.index == 2){
+					this.style.backgroundPosition = '-116px -214px';
+				}
+				if(this.index == 3){
+					this.style.backgroundPosition = '-174px -214px';
+				}
+			}
+		}
+	}
+}
+
+
+</script>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>
+				<i class="i1""></i>
+				<a href="#">
+					如何存款
+					<span>无手续费，随时提款</span>
+				</a>
+			</li>
+			<li>
+				<i class="i2"></i>
+				<a href="#">
+					如何存款
+					<span>无手续费，随时提款</span>
+				</a>
+			</li>
+			<li>
+				<i class="i3"></i>
+				<a href="#">
+					如何存款
+					<span>无手续费，随时提款</span>
+				</a>
+			</li>
+			<li>
+				<i class="i4"></i>
+				<a href="#">
+					如何存款
+					<span>无手续费，随时提款</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

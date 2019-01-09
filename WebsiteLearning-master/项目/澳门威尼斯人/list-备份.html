@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子游戏-列表页</title>
+	<link rel="stylesheet" href="./css/common.css">
+</head>
+<style>
+body {
+	background-color: #2a2c3b;
+}
+.main-w {
+	width: 1000px;
+	margin: auto;
+}
+.nav {
+	height: 50px;
+	color: #fff;
+}
+
+.nav li {
+	line-height: 50px;
+	padding: 0 20px;
+}
+
+.banner {
+	height: 210px;
+	background: url(./image/banner.jpg) no-repeat center;
+}
+
+.container {
+	background-color: #313345;
+	margin-top: 20px;
+	padding-bottom: 40px;
+}
+
+.providers {
+	color: #fff;
+}
+
+.providers li {
+	height: 40px;
+	padding: 0 30px;
+	line-height: 40px;
+}
+
+.providers li.active {
+	background-color: #e89b37;
+}
+
+.game-provider input {
+	width: 127px;
+	height: 28px;
+	border:  none;
+}
+
+.game-provider button {
+	height: 28px;
+	border:0;
+	padding-right: 10px;
+}
+.search {
+	padding-top: 10px;
+}
+
+.gametype li {
+	height: 30px;
+	line-height: 30px;
+	padding: 0 16px;
+	margin-right: 20px;
+	border-radius: 4px;
+	margin-left: 10px;
+	margin-top: 20px;
+	color: #fff;
+}
+
+.gametype li.active {
+	background-color: #fff;
+	color: black;
+}
+
+.game-list {
+	width: 775px;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+.game-list li {
+	width: 174px;
+	margin-right: 26px;
+	margin-bottom: 20px;
+}
+
+.game-list .li4 {
+	margin-right: 0;
+}
+
+.game-list li img {
+	width: 100%;
+	height: 135px;
+}
+
+.game-list li p {
+	text-align: center;
+	color: #afafaf;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: #3b3d50;
+	line-height: 34px;
+	height: 34px;
+}
+
+.game-list .info{
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	display: none;
+}
+</style>
+
+<script src="./js/jquery.js"></script>
+
+<script>
+
+	// https://b9188.com/member/gametype/?provider=MG&category=2&platform=0
+	// https://b9188.com/member/game/?platform=0&opt_expand=1&offset=0&limit=20&category=2&gametype=103&title=MG%20%E7%94%B5%E5%AD%90%E6%B8%B8%E8%89%BA
+
+	$(function(){
+		var aProviders = $('.game-provider li');
+
+		var yxgs = aProviders.data('flag');
+
+		var id = '';
+
+		var texts='';
+
+		$('.game-provider li').hover(function(){
+			aProviders.removeClass('active');
+
+			for (var i = 0; i < aProviders.length; i++) {
+				if(aProviders.eq(i).data('flag') == yxgs){
+					aProviders.eq(i).addClass('active')
+				}
+			}
+			
+			$(this).addClass('active');
+
+		},function(){
+			$('.game-provider li').removeClass('active');
+			for (var i = 0; i < aProviders.length; i++) {
+				if(aProviders.eq(i).data('flag') == yxgs){
+					aProviders.eq(i).addClass('active')
+				}
+			}
+		})
+
+		//游戏公司导航栏点击
+		$('.game-provider li').click(function(event) {
+			aProviders.removeClass('active');
+			$(this).addClass('active');
+			yxgs =$(this).data('flag');
+
+			ggg(yxgs); //读取游戏公司 所有游戏
+			kk(id,texts) //读取游戏菜单 --游戏图片，名称
+		});
+
+
+
+
+		ggg(yxgs);
+
+		function ggg(yxgs){
+			$.ajax({
+				url:"https://b9188.com/member/gametype",
+				data:{
+					provider:yxgs,
+					category:2,
+					platform:1
+				},
+				type:"get",
+				success:function(data){
+					// console.log("success");
+					// console.log(data);
+					var str="";
+					for (var i = 0; i < data.length; i++) {
+						if(i==0){
+							str += '<li data-id='+data[i].id+' class="fl active">'+data[i].name+'</li>'
+						}else{
+							str += '<li data-id='+data[i].id+' class="fl">'+data[i].name+'</li>'
+						}
+						
+
+					}
+
+					$('.gametype ul').html(str)
+
+
+					var aaa = $('.gametype li');
+					 id = aaa.data('id');
+
+
+
+					$('.gametype li').hover(function(){
+						aaa.removeClass('active');
+
+						for (var i = 0; i < aaa.length; i++) {
+							if(aaa.eq(i).data('id') == id){
+								aaa.eq(i).addClass('active')
+							}
+						}
+
+						$(this).addClass('active');
+
+					},function(){
+						$('.gametype li').removeClass('active');
+						for (var i = 0; i < aaa.length; i++) {
+							if(aaa.eq(i).data('id') == id){
+								aaa.eq(i).addClass('active')
+							}
+						}
+					})
+
+					//点击所有游戏分类
+					$('.gametype li').click(function(event) { 
+						aaa.removeClass('active');
+						$(this).addClass('active');
+						id =$(this).data('id');
+						texts = $(this).text();
+						console.log(texts);
+						kk(id,texts) //读取所有游戏--图片+游戏名称
+
+
+					});
+
+
+
+				},
+				error:function(e){
+					console.log("error");
+					console.log(e);
+				}
+			})
+		}
+
+		function kk(code,text){
+			$.ajax({
+				url: 'https://b9188.com/member/game/?platform=1&opt_expand=1&offset=0&limit=20&category=2',
+				type: 'get',
+				data: {
+				//?platform=0&opt_expand=1&offset=0&limit=20&category=2&gametype=103
+				gametype:code,
+			},
+			success:function(data){
+				console.log("success");
+				console.log(data);
+				var str = "";
+				for (var i = 0; i < data.results.length; i++) {
+					if(i % 4 == 3){
+						str += '<li class="fl li4">\
+						<img src='+data.results[i].icon+' alt="">\
+						<p>'+data.results[i].name+'</p>\
+						</li>'
+					}else{
+						str += '<li class="fl">\
+						<img src='+data.results[i].icon+' alt="">\
+						<p>'+data.results[i].name+'</p>\
+						</li>'
+					}
+				}
+				if(data.results.length == 0){
+					var ss = '<p class="info">抱歉暂无<<span>'+text+'</span>>类型游戏, 请切换游戏类型</p>';
+					$('.info').html(ss);
+					$('.info').css('display','block')
+				}else{
+					$('.info').css('display','none')
+				}
+
+				$('.game-list ul').html(str)
+
+				
+			},
+			error:function(e){
+				console.log("error");
+				console.log(e);			
+			}
+
+		})
+		}
+		
+kk(id,texts)
+	})
+
+
+</script>
+<body>
+	<div class="nav clearfix main-w">
+		<ul class="fl clearfix">
+			<li class="fl">首页</li>
+			<li class="fl">真人视讯</li>
+			<li class="fl">电子游艺</li>
+			<li class="fl">体育赛事</li>
+			<li class="fl">彩票游戏</li>
+			<li class="fl">捕鱼</li>
+		</ul>
+		<ul class="fr clearfix">
+			<li class="fl">优惠活动</li>
+			<li class="fl">代理加盟</li>
+			<li class="fl">在线客服</li>
+		</ul>
+	</div>
+
+	<div class="banner"></div>
+
+	<div class="container main-w">
+		
+		<div class="game-provider clearfix">
+			<ul class="fl clearfix providers">
+				<li data-flag="PT" class="fl active">PT电子游艺</li>
+				<li data-flag="AG" class="fl">AG电子游艺</li>
+				<li data-flag="MG" class="fl">MG电子游艺</li>
+				<li data-flag="GG" class="fl">GG电子游艺</li>
+				<li data-flag="KG" class="fl">成人电子游戏</li>
+			</ul>
+
+			<div class="fr search">
+				<input class="fl" type="text" placeholder="请输入游戏名称">
+				<button class="fl">搜索</button>
+			</div>
+		</div>
+
+		<div class="gametype">
+			<ul class="clearfix">
+				<!-- <li data-flag="lhjzj" class="fl active">老虎角子机</li>
+					<li data-flag="YOPLAY" class="fl">YOPLAY平台</li> -->
+				</ul>
+			</div>
+
+			<div class="game-list">
+				<ul class="clearfix">
+		<!-- 			<li class="fl">
+						<img src="https://jaguar-production.azureedge.net/gameicons/SB21.jpg" alt="">
+						<p>越野机车</p>
+					</li>
+					<li class="fl">
+						<img src="https://jaguar-production.azureedge.net/gameicons/SB21.jpg" alt="">
+						<p>越野机车</p>
+					</li>
+					<li class="fl">
+						<img src="https://jaguar-production.azureedge.net/gameicons/SB21.jpg" alt="">
+						<p>越野机车</p>
+					</li>
+					<li class="fl li4">
+						<img src="https://jaguar-production.azureedge.net/gameicons/SB21.jpg" alt="">
+						<p>越野机车</p>
+					</li>
+					<li class="fl">
+						<img src="https://jaguar-production.azureedge.net/gameicons/SB21.jpg" alt="">
+						<p>越野机车</p>
+					</li> -->
+				</ul>
+
+				<p class="info">抱歉暂无<span>虚拟游戏</span>类型游戏, 请切换游戏类型</p>
+
+			</div>
+		</div>
+	</body>
+	</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子游戏-列表页</title>
+	<link rel="stylesheet" href="./css/common.css">
+</head>
+<style>
+	body {
+		background-color: #2a2c3b;
+	}
+	.main-w {
+		width: 1000px;
+		margin: auto;
+	}
+
+	.nav {
+		height: 50px;
+		color: #fff;
+	}
+
+	.nav li {
+		line-height: 50px;
+		padding: 0 20px;
+		position: relative;
+	}
+
+	.drop {
+		position: absolute;
+		left: 0;
+		height: 90px;
+		background-color: red;
+	}
+
+	.menus {
+		height: 100%;
+		background-color: #232431;
+	}
+
+	.caret {
+		width: 0;
+		height: 0;
+		border: 5px solid transparent;
+		border-top-color: #fff;
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		margin-left: -5px;
+	}
+
+	
+</style>
+
+<script src="./js/jquery.js"></script>
+
+<script>
+	
+	function getPos (obj) {
+
+		var oPos = {
+			left: 0,
+			top: 0
+		}
+
+		while(obj.offsetParent) {
+			oPos.left = oPos.left + obj.offsetLeft
+			oPos.top = oPos.top + obj.offsetTop
+
+			obj = obj.offsetParent
+		}
+
+		return oPos
+	}
+	
+	$(function () {
+		var clientW = document.body.clientWidth || document.documentElement.clientWidth
+
+
+		var aDrops = $('.drop')
+		aDrops.css('width', clientW)
+
+
+		$('.list li').hover(function() {
+			$(this).find('.drop').show()
+		}, function() {
+			$(this).find('.drop').hide()
+		});
+
+
+
+		for(var i = 0; i < aDrops.length; i++) {
+			var oPos = getPos(aDrops[i])
+			aDrops.eq(i).css('left', -oPos.left)
+		}
+
+		aDrops.hide()
+
+
+
+		window.onresize = function () {
+
+			var clientW = document.body.clientWidth || document.documentElement.clientWidth
+
+			aDrops.css('width', clientW)
+
+
+			for(var i = 0; i < aDrops.length; i++) {
+				var oPos = getPos(aDrops[i])
+				aDrops.eq(i).css('left', -oPos.left)
+			}
+
+			aDrops.hide()
+		}
+	})
+	
+</script>
+<body>
+	
+	<div class="nav clearfix main-w">
+		<ul class="fl clearfix list">
+			<li class="fl">首页</li>
+			<li class="fl">
+				真人视讯
+				<span class="caret"></span>
+				<div class="drop">
+					<div class="main-w menus">
+						真人视讯
+					</div>
+				</div>
+
+			</li>
+			<li class="fl">
+
+				电子游艺
+				<div class="drop">
+					<div class="main-w menus">
+						电子游艺
+					</div>
+				</div>
+
+			</li>
+			<li class="fl">
+				体育赛事
+				<div class="drop">
+					<div class="main-w menus">
+						体育赛事
+					</div>
+				</div>
+			</li>
+			<li class="fl">
+				彩票游戏
+				<div class="drop">
+					<div class="main-w menus">
+						彩票游戏
+					</div>
+				</div>
+			</li>
+			<li class="fl">
+				捕鱼
+				<div class="drop">
+					<div class="main-w menus">
+						捕鱼
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul class="fr clearfix">
+			<li class="fl">优惠活动</li>
+			<li class="fl">代理加盟</li>
+			<li class="fl">在线客服</li>
+		</ul>
+	</div>
+</body>
+</html>

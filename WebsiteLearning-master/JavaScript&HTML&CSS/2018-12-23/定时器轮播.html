@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>定时器轮播</title>
+	<style type="text/css">
+	
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.div1{
+		margin:100px;
+		width: 300px;
+		height:300px;
+		border: 1px solid #ccc;
+		text-align: center;
+		l
+	}
+
+	button{
+		width: 40px;
+		height: 30px;
+	}
+
+
+	.active{
+		background-color: green;
+	}
+
+	li{
+		display: inline-block;
+		width: 130px;
+		height: 100px;
+		border: 1px solid #ccc;
+		margin-top: 10px;
+		display: none;
+	}
+
+	.xs{
+		display: inline-block;
+	}
+</style>
+
+<script type="text/javascript">
+
+	window.onload = function(){
+		var btn = document.getElementsByTagName('button');
+		var oLi = document.getElementsByTagName('li');
+		var n = 0;
+
+		var div = document.getElementById('div');
+
+		console.log(btn);
+		
+		for (var i = 0; i < btn.length; i++) {
+
+			btn[i].index = i;
+			btn[i].onclick = function(){
+				lbtfor();
+				this.className = 'active'
+				oLi[this.index].className = 'xs'
+				n=this.index;
+			}
+		}
+		
+		function lbtfor(){
+			for (var i = 0; i < btn.length; i++) {
+				btn[i].className = ''
+				oLi[i].className = ''
+			}
+		}
+
+		
+		function carousel(){
+				n++;
+				lbtfor();
+				if(n==btn.length){
+					n=0;
+				}
+				btn[n].className = 'active';
+				oLi[n].className = 'xs';
+
+		}
+
+
+		var int = setInterval(carousel,2000);
+
+
+		div.onmouseover =function(){
+			clearInterval(int);
+		}
+
+		div.onmouseout = function(){
+			int = setInterval(carousel,2000);
+		}
+
+	}
+
+
+
+</script>
+</head>
+<body>
+	<div class="div1" id="div">
+		<button class="active">电器</button>
+		<button>衣服</button>
+		<button>水果</button>
+		
+		<ul>
+			<li class="xs">我是电器</li>
+			<li>我是衣服</li>
+			<li>我是水果</li>
+		</ul>
+
+	</div>
+	
+
+
+</body>
+</html>

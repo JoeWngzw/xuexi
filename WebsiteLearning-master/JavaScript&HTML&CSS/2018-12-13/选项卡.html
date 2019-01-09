@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+	*{
+		margin:0;
+		padding: 0;
+		list-style: none;
+	}
+
+	div{
+		width: 100%;
+		background-color:#ccc;
+	}
+
+	div ul{
+		height: 30px;
+		background-color: #f9f000;
+		width: 1000px;
+		margin:0 auto;
+	}
+
+	ul li{
+		position: relative;
+		width: 100px;
+		float: left;
+		margin-left: 100px;
+		background-color: red;
+		line-height: 30px;
+		text-align: center;
+		
+	}
+
+	.aa{
+		width: 100px;
+		height: 200px;
+		background-color: #ccc;
+		position: absolute;
+		left:0px;
+		top: 30px;
+		display: none;
+	}
+</style>
+
+<script type="text/javascript">
+	window.onload = function(){
+		var li = document.getElementsByTagName('li');
+
+		var aa = document.getElementById('aa');
+		console.log(li);
+		console.log(li[0]);
+		li[0].onmouseover =function(){
+			console.log('jin')
+			aa.style.display = 'block';
+		}
+		li[0].onmouseout =function(){
+			aa.style.display = 'none';
+		}
+	}
+</script>
+<body>
+	<div>
+		<ul>
+			<li>服装
+				<div id="aa" class="aa"></div>
+			</li>
+			<li>电脑</li>
+			<li>手机</li>
+		</ul>
+	</div>
+	
+
+
+</body>
+</html>

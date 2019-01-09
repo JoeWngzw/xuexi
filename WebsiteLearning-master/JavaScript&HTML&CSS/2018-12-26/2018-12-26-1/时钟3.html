@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 100%;
+            text-align: center;
+            font-size: 100px;
+        }
+    </style>
+    <script>
+        function toDouble(n){
+            return n<10?'0'+n:''+n;
+        }
+        window.onload = function () {
+            var oDiv=document.getElementById('div1');
+            var oDate=new Date();
+
+            var h=oDate.getHours();
+            var m=oDate.getMinutes();
+            var s=oDate.getSeconds();
+
+            setInterval(function(){
+                oDiv.innerHTML=toDouble(h)+':'+toDouble(m)+':'+toDouble(s);
+                console.log(1);
+            },1000);
+        };
+    </script>
+</head>
+<body>
+    <div id="div1">11:11:11</div>
+</body>
+</html>

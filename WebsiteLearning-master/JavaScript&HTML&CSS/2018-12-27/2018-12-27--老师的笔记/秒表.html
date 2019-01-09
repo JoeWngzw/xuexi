@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+
+    </style>
+</head>
+<script>
+    
+    window.onload = function () {
+        var aInps = document.getElementsByTagName('input')
+
+        var n = 0;
+
+        var t
+
+        var bFlag = false
+        aInps[1].onclick = function () {
+            bFlag = false
+            t = setInterval(function () {
+                aInps[0].value = ''+ parseInt(n / 60) +'分'+(n % 60)+'秒'
+                n++
+            }, 100)
+        }
+
+
+        aInps[2].onclick = function () {
+            bFlag = true
+            clearInterval(t)
+        }
+
+        aInps[3].onclick = function () {
+            console.log('t is')
+            console.log(t)
+            if (bFlag) {
+                aInps[0].value = ''
+                n = 0
+            }
+        }
+    }
+</script>
+<body>
+    <input style="margin-left: 50px;" type="text" value="0分0秒">
+    <input type="button" value="开始">
+    <input type="button" value="暂停">
+    <input type="button" value="清空">
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000;
+        }
+        ul li{
+            float: left;
+            list-style: none;
+        }
+        ul{
+            width: 200px;
+            margin: 0 auto;
+            font-size: 50px;
+            color: #fff;
+        }
+    </style>
+    <script>
+        function toDouble(n){
+            return n<10?'0'+n:''+n;
+        }
+        window.onload = function () {
+            var aImg=document.getElementsByTagName('img');
+
+
+            setInterval(function(){
+                var oDate=new Date();
+                var h=oDate.getHours();
+                var m=oDate.getMinutes();
+                var s=oDate.getSeconds();
+
+                var str=toDouble(h)+toDouble(m)+toDouble(s);
+                for(var i=0; i<aImg.length; i++){
+                    aImg[i].src='img/'+str.charAt(i)+'.png';
+                }
+                console.log(str);
+            },1000);
+        };
+    </script>
+</head>
+<body>
+<ul>
+    <li><img src="img/1.png" alt=""></li>
+    <li><img src="img/1.png" alt=""></li>
+    <li>:</li>
+    <li><img src="img/1.png" alt=""></li>
+    <li><img src="img/1.png" alt=""></li>
+    <li>:</li>
+    <li><img src="img/1.png" alt=""></li>
+    <li><img src="img/6.png" alt=""></li>
+</ul>
+</body>
+</html>

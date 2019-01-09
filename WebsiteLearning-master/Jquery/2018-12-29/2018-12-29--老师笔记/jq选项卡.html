@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+
+	<style>
+		
+		div {
+			width: 240px;
+			height: 300px;
+			border:  1px solid #ccc;
+			text-align: center;
+			line-height: 300px;
+			display: none;
+		}
+
+		div.active {
+			display: block;
+		}
+
+		button.active {
+			background-color: green;
+			color: #fff;
+		}
+
+	</style>
+	<script src="./jquery.js"></script>
+
+	<script>
+		
+		$(function () {
+
+			var aBtns = $('button');
+
+
+			// $(原生js对象) => 包装成jq对象
+			// jq对象 aBtns[1] =》 原生对象
+
+			aBtns.on('click', function () {
+				aBtns.removeClass('active')
+
+				alert($(aBtns[0]).html())
+
+				alert($(this).html())
+			})
+		})
+	</script>
+	<body>
+		
+		<button class="aa active">新闻</button>
+		<button>热点</button>
+		<button>娱乐</button>
+
+		<div class="active">
+			我是新闻
+		</div>
+
+		<div>
+			我是热点
+		</div>
+
+		<div>
+			我是娱乐
+		</div>
+	</body>
+</html>

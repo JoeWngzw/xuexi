@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<input type="text">
+	<input type="button" value="发送">
+	<ul id="oUl">
+		
+	</ul>
+
+	<script>
+		
+		var aInps = document.getElementsByTagName('input')
+		 var oUl = document.getElementById('oUl')
+
+		aInps[1].addEventListener('click', function (e) {
+
+			var oVal = aInps[0].value
+
+
+			var oLi = document.createElement('li')
+
+			oLi.innerHTML = oVal
+
+
+			oUl.appendChild(oLi)
+
+			aInps[0].value = ''
+
+
+		}, false)
+
+
+		// aInps[0].oninput = function (e) {
+
+		// 	console.log(e)
+		// }
+
+
+		// aInps[0].onkeydown = function (e) {
+
+		// 	console.log('onkeydown')
+		// 	console.log(e)
+
+		// }
+
+
+		aInps[0].onkeyup = function (e) {
+
+			if (e.key == 'Enter') {
+
+				var oVal = aInps[0].value
+
+
+				var oLi = document.createElement('li')
+
+				oLi.innerHTML = oVal
+
+
+				oUl.appendChild(oLi)
+
+				aInps[0].value = ''
+			}
+		}
+	</script>
+</body>
+</html>

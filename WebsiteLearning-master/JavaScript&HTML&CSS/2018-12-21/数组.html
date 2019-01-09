@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>	
+	<script type="text/javascript">
+		var arr = [9,5,-1,8,4,3,9,6,3,2,6];
+		var bb = [];
+		var minNum; //最小的值
+
+		var minIndex;//最小下标
+
+		function min(){
+			for (var i = 0; i < arr.length; i++) {
+				if(i==0){
+					minNum = arr[0];
+				}
+
+				if(minNum >arr[i]){
+					minNum = arr[i];
+					minIndex = i;
+				}
+			}
+			return [minNum,minIndex];
+		}
+
+		function show(){
+			
+			
+			
+			for (var i = 0; i < 10; i++) {
+				var aa = min();
+				arr.splice(aa[1],1);
+				bb.push(aa[0]);
+				alert(aa);
+			}
+		}
+
+		var a =show();
+
+		// alert(a)
+		// var aaa = show();
+
+
+		console.log(bb);
+	</script>
+</body>
+</html>

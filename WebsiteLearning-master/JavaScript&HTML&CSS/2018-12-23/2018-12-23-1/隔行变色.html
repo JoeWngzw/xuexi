@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>大牙培训</title>
+	</head>
+	
+	<style>
+		* {
+			margin : 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		ul li {
+			height: 40px;
+			width: 100%;
+			background-color: #ccc;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var aUl = document.getElementsByTagName('ul');
+
+
+			for(var i = 0; i < 50; i++) {
+				var oLi = document.createElement('li');
+
+				aUl[0].appendChild(oLi)
+
+			}
+
+
+			for(var i = 0; i < 50; i+=2) {
+				aUl[0].children[i].style.backgroundColor = 'green'
+			}
+		}
+	</script>
+
+	<body>
+		<ul>
+
+		</ul>
+		<ul>
+			
+		</ul>
+		<ul>
+			
+		</ul>
+	</body>
+</html>

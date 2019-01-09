@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+	</head>
+	<style>
+		
+		#box div {
+			width: 260px;
+			height: 200px;
+			border: 1px solid #ccc;
+			text-align: center;
+			line-height: 200px;
+			display: none;
+		}
+
+		button.active {
+			background-color: red;
+			color: #fff;
+		}
+
+		#box div.active {
+			display: block;
+		}
+
+	</style>
+	<script>
+		
+		window.onload = function () {
+			var oBtn = document.getElementsByTagName('button')
+			oBtn[0].onclick = function () {
+				alert(oBtn[0].id)
+				alert(oBtn[0].className)
+				alert(oBtn[0].ffffffff)
+
+				alert(oBtn[0].getAttribute('ffffffff'))
+				alert(oBtn[0].getAttribute('id'))
+
+			}
+		}
+	</script>
+	<body>
+		<button ffffffff="11111" onclick="" id="btn1" style="" aaaaaaa="1" class="active">家用电器</button>
+		
+	</body>
+</html>

@@ -1,0 +1,11 @@
+.login{
+	width:1000px;
+	background-color: #fff;
+	margin:0 auto;
+	height: 278px;
+	border-radius: 5px;
+}
+.error{
+	display: none;
+	color: red;
+}

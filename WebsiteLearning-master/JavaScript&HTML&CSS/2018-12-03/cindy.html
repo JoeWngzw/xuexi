@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.fl {
+			float: left;
+		}
+
+		.fr {
+			float: right;
+		}
+
+		.mainw {
+			width: 1200px;
+			margin: 0 auto;
+		}
+
+		.mpic1 {
+			margin: 0px 0px 22px 22px;
+		}
+
+		.mpic2 {
+			margin: 0px 0px 10px 50px;
+		}
+
+		.mpic3 {
+			margin: 0px 0px 20px 0;
+		}
+		.mpic4 {
+			margin: 0px 0px 40px 30px;
+		}
+
+		.nav {
+			height: 51px;
+			background-color: #ff7b00;
+
+		}
+
+		.navmb li {
+			display: inline;
+			height: 51px;
+			line-height: 51px;
+			float: left;
+			padding: 0 18px;
+			color: #fff;
+			font-size: 16px;
+			font-weight: bolder;
+			position: relative;
+		}
+
+		.new1 {
+			position: absolute;
+
+		}
+
+		.mainarea {
+			background-color: #f0f0f0;
+			height: 2000px;
+		}
+
+		.content {
+			/*width: 1200px;*/
+			height: 2000px;
+			/*margin: 0 auto;*/
+			/*border: 1px solid black;*/
+		}
+
+		.left {
+			width: 865px;
+			height: 2000px;
+			float: left;
+		}
+		.box1 {
+			width: 865px;
+			height: 490px;
+			background-color: white;
+			
+		} 
+
+		.b1upper {
+			border-bottom: 2px solid #f0f0f0;
+			width: 865px;
+			height: 302px;
+		}
+		.img {
+			margin: 20px;
+			width: 490px;
+			height: 260px;
+		}
+
+		.b1upper div {
+			width: 330px;
+			height: 300px;
+		}
+
+		.b1upper div .b1upper-right-u {
+			width: 310px;
+			height: 45px;
+			border-bottom:1px solid #ebebeb;
+			margin-top: 10px;
+			line-height: 45px;
+		}
+
+		.b1upper div .b1upper-right-u .span1  {
+			font-weight: bolder;
+			font-size: 20px;
+		}
+
+		.b1upper div .b1upper-right-u .span2  {
+			font-weight: bolder;
+			color: #ccc;
+
+		}
+
+		.b1upper div .lowerp {
+			width: 310px;
+			height: 224px;
+			/*background-color: red;*/
+		}
+
+		.b1upper div li {
+			width: 248px;
+			height: 32px;
+			line-height: 32px;
+			font-size: 14px;
+		}
+
+		.b1lower {
+			width: 865px;
+			height: 172px;
+			background-color: white;
+			border-bottom: 15px solid #f0f0f0;
+			/*border设了但是无法显示*/
+
+		}
+		.b1lower div {
+			float: left;
+			margin: 20px 6px;
+				
+		}
+
+		.b1lower div p
+		{
+			text-align: center;
+		}
+
+		.box2 {
+			width: 865px;
+			background-color: white;
+			/*height: 550px;*/
+			overflow: hidden;
+		}
+
+		.box2 .caizhong {
+			height: 61px;
+			font-size: 18px;
+			border-bottom: 1px solid /*#f0f0f0*/ red;
+		}
+		.box2 ul li {
+			margin:0 20px;
+			line-height: 59px;
+
+		}
+		/*设定了line hight 热门彩底下横线消失*/
+		.active {
+			color: #ff7b00;
+		}
+
+		.caizhong .active {
+			color: #ff7b00;
+			border-bottom: 4px solid #ff7b00;
+		}
+
+		.item {
+			width: 785px;
+			height: 650px;
+			background-color: white;
+			padding: 20px 40px;
+			border-bottom: 1px 
+		}
+
+		.t {
+			height: 90px;
+		}
+
+		.item .t img {
+			width: 90px;
+			height: 90px;
+		}
+
+		.text {
+			width: 430px;
+			height: 38px;
+			margin-left: 20px;
+			font-size: 18px;
+			line-height: 36px;
+		} 
+
+		.gray {
+			color: gray;
+			font-size: 14px;
+		}
+
+
+		.item .number li {
+			border-radius: 4px;
+			margin: 0;
+			/*line-height: 36px;*/
+			font-size: 18px;
+			width: 36px;
+			height: 36px;
+			border: 1px solid #ccc;
+			display: inline-block;
+			background-image: url(https://1680118.com/img/icon/bjpknum2.png?v=201811231517);
+		
+		}
+
+		.li1 {
+			background-position: -301px 315px;
+		}
+
+		.li2 {
+			background-position: -246px 0;
+		}
+
+		.li3 {
+			background-position: -123px 0;
+		}
+
+		.li4 {
+			background-position: -1px 0;
+		}
+
+		.li5 {
+			background-position: -42px 0;
+
+		}
+
+		.li6 {
+			background-position: -83px 0;
+
+		}
+
+		.li7 {
+			background-position: -164px 0;
+
+		}
+
+		.li8 {
+			background-position: -83px 0;
+
+		}
+
+		.li9 {
+			background-position: -42px 0;
+
+		}
+
+		.li10 {
+			background-position: -83px 0;
+
+		}
+
+		.time {
+			margin:30px 30px 0 0;
+
+		}
+
+		.time .fen .miao {
+			width: 36px;
+			height: 36px;
+			background-color: #ff7b00;
+			border-radius: 4px;
+			color: white;
+			font-weight: bolder;
+			text-align: center;
+			line-height: 36px;
+			font-size: 16px;
+
+		}
+		table {
+			width: 785px;
+			border-collapse: collapse;
+			margin-left: 18px;
+			text-align: center;
+		}
+
+		th {
+			height: 33px;
+			background-color: #f5f5f5;
+		}
+
+		td {
+			line-height: 33px;
+		}
+	
+		.head .bjpks {
+			width: 80px;
+			height: 20px;
+		}
+
+/*box 2*/ 
+/*box 3*/
+		.box3 {
+			width: 865px;
+			height: 338px;
+			margin: 15px 0;
+			background-color: white;
+		}
+
+		.bjpk10 {
+			width: 865px;
+			height: 56px;
+			border-bottom: 1px solid #f0f0f0;
+		}
+
+		.b3t {
+			font-weight: bolder;
+			font-size:20px;
+			line-height: 56px;
+			margin-left: 20px;
+		}
+
+		.b3t2 {
+			color:gray;
+		}
+
+		.rank {
+			margin:10px 15px;
+
+		}
+
+		.rank span {
+			margin-right: 15px;
+			width: 28px;
+			height: 25px;
+
+		}
+
+		.first {
+			width: 28px;
+			height: 26px;
+			border-bottom: 2px solid #ff7b00;
+		}
+
+		.rankingresult {
+			width: 840px;
+			height: 220px;
+			margin:20px 0 0 25px;
+		}
+		.rankingresult li {
+			width: 220px;
+			height:100px;
+			margin:0 45px 10px 0;
+			float: left;
+		}
+
+		.head {
+			width: 80px;
+			height: 80px;
+			margin-left: 20px;
+			float: left;
+		}
+		.head img {
+			width: 60px;
+			height: 60px;
+
+		}
+		.head .bjpksp {
+			width: 36px;
+			height: 20px;
+			font-size:12px;
+			line-height: 20px;
+			text-align: center;
+		}
+
+		.result{
+			width: 120px;
+			height: 70px;
+			float: left;
+		}
+
+		/*.result  {
+			color: red;
+			font-size: 18px;
+			font-weight: bolder;
+		}
+*/
+		.red {
+			color: red;
+			font-size: 18px;
+			font-weight: bolder;
+		}
+
+		.sred {
+			color: red;
+			font-size: 12px;
+
+		}
+		.pgray {
+			color: gray;
+			font-size: 12px;
+		}
+
+		.right {
+			width: 320px;
+			height: 2000px;
+			/*border:1px solid black;*/
+			float:right;
+		}
+
+		.tjcz {
+			width: 320px;
+			height: 400px;
+			background-color: white;
+		}
+
+		.tjd1 {
+			width: 320px;
+			height: 54px;
+		}
+
+		.tjtp {
+			text-align: center;
+			line-height: 34px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+
+		.tjcz .tjts {
+			text-align: center;
+			line-height: 20px;
+			color: gray;
+			display: inline-block;
+		}    /*没生效*/    
+
+		.tjd2 {
+			width: 300px;
+			height: 330px;
+			margin: 10px
+		}
+
+		.tjd2 li {
+			width: 92px;
+			height: 95px;
+			float: left;
+			text-align: center;
+			margin-top: 15px;
+
+		}
+
+		.right .pic {
+			width: 320px;
+			height: 380px;
+			margin-top: 15px;
+		}
+
+		.right .pic .li {
+			width: 150px;
+			height: 100px;
+			padding:2px;
+		}  /*图片贴在一块儿*/
+
+		.pic ul li{
+			float: left;
+		}
+
+		.s3box {
+			width: 320px;
+			height: 382px;
+			background-color: white;
+		}
+
+		.fayc {
+			width: 320px;
+			height: 50px;
+			background-color: white;
+			border-bottom: 1px solid #f0f0f0;
+		}
+
+		.fadiv1 {
+			width: 100px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			font-size: 20px;
+			font-weight: bolder;
+		}
+
+		.fadiv2 {
+			line-height: 40px;
+			color: gray;		
+		}
+
+		.s3box .newslist {
+			width: 300px;
+			height: 330px;
+			padding: 10px;
+			font-size: 14px;
+			line-height: 30px;
+			color: #666;
+		}
+
+		.s4box {
+			width: 320px;
+			height: 582px;
+			background-color: white;
+		}
+
+		.toolshead {
+			font-size: 22px;
+			padding: 10px 15px;
+			font-weight: bolder;
+			border-bottom: 1px solid #f0f0f0;
+
+		}
+		.toolsbody {
+			width: 320px;
+			height: 520px;
+
+		}
+
+		.toolslist {
+			width: 290px;
+			height: 258px;
+			padding: 0 15px;
+		}
+
+		.listing {
+			width: 290px;
+			height: 259px;
+			border-bottom: 1px solid #f0f0f0;
+		}
+
+		.tools2 {
+			width: 290px;
+			height: 26px;
+			margin: 10px 0;
+		}
+		.t3ul li{
+			margin-right: 20px;
+		}
+
+		.tools3 {
+			width: 290px;
+			height: 47px;
+			border-bottom: 1px solid #f0f0f0;
+		}
+
+		.tjtb {
+			text-align: center;
+		}
+
+
+		.line {
+			height: 1px;
+			width: 44px;
+			background-color: #ebebeb;
+			margin-top: 10px;
+			display: inline-block;
+		}
+
+
+	</style>
+
+
+<body>
+	<div class="mainw">
+		<img class="mpic1" src="https://1680118.com/img/logo.png?v=201811231517">
+		<img class="mpic2" src="https://images.img861.com/395359ef-7362-4b03-89e7-05d3591ac46d.jpg">
+		<img class="mpic3" src="https://images.img861.com/b06a1715-221e-491b-9772-99c5f3eeee5e.png">
+		<img class="mpic4" src="https://1680118.com/img/icon/APP_download.png?v=201811231517">
+	</div>
+
+	<div class="nav">
+		<div class="navmb mainw">
+			<ul class="navmb">
+				<li>首页</li>
+				<li>彩票大厅</li>
+				<li class="new1">站长推荐
+					<img src="https://1680118.com/img/icon/news.png?v=2018112315173">
+				</li>
+				<li class="new2">两面推荐
+					<img src="https://1680118.com/img/icon/news.png?v=2018112315173">
+				</li>
+				<li>长龙提醒</li>
+				<li>开奖调用</li>
+				<li>走势图表</li>
+				<li>试玩投注</li>
+				<li>香港彩</li>
+				<li>资讯</li>
+				<li>软件下载</li>
+				<li class="fr">简约版</li>
+
+			</ul>
+
+		</div>
+	</div>
+
+	<div class="mainarea">
+		<div class="content mainw">
+			<div class="left">
+				<div class="box1">
+					<div class="b1upper">
+						<img class="img" fl src="https://images.img861.com/a4b6a374-c896-4d31-8085-8c6662c0d820.jpg">
+						<div class="b1upper-right fr">
+							<div class="b1upper-right-u">
+							 <span class="span1 fl">行业新闻</span>
+							 <span class="span2 fr">更多</span>
+							</div>
+
+							<div class="lowerp">
+								<ul>
+									<li>湖北11选5号码推荐11月30日下午</li>
+									<li>湖北11选5号码推荐11月30日下午</li>
+									<li>湖北11选5号码推荐11月30日下午</li>
+									<li>湖北11选5号码推荐11月30日下午</li>
+									<li>湖北11选5号码推荐11月30日下午</li>
+									<li>湖北11选5号码推荐11月30日下午</li>
+									<li>安徽快三出号分析对子66转热11月29日</li>
+
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<div class="b1lower">
+						<div class="one">
+							<img class="fl" src="https://1680118.com/img/video_png/pk10.png?v=201811231517">
+							<p>倒计时:shkxjsd</p>
+						</div>
+						<div class="two">
+							<img class="fl" src="https://1680118.com/img/video_png/pk10.png?v=201811231517">
+							<p>倒计时:hsxbsbcdm</p>
+						</div>
+						<div class="three">
+							<img class="fl" src="https://1680118.com/img/video_png/jsft.png?v=201811231517">
+							<p>倒计时:sjcbsjdcjdjkc</p>
+						</div>	
+							
+						<div class="four">
+							<img class="fl" src="https://1680118.com/img/video_png/gxklsf.png?v=201811231517">
+							<p>倒计时:djhkjdhkjwd</p>	
+						</div>	
+						<div>
+							<img src="https://1680118.com/img/video_png/bjks.png?v=201811231517">
+							<p>倒计时:jsjkcdjkscnkdn</p>
+						</div>	
+							
+							
+					
+						
+					</div>
+				</div>
+				<div class="box2">					
+					<ul class="caizhong">
+						<li class="active fl">热门彩</li>
+						<li class="fl">PK10</li>
+						<li class="fl">时时彩</li>
+						<li class="fl">11选5</li>
+						<li class="fl">快乐十分</li>
+						<li class="fl">快三</li>
+						<li class="fl">其它</li>
+					</ul>
+					
+					<div class="item">
+						<div>
+							<div class="t">
+								<img class="fl" src="https://1680118.com/img/beijinpk.png?v=201811231517">
+								<div class="text fl">
+									<p>北京PK10
+										<span class="active">718114</span>
+										<span>期</span>
+										<span class="gray"> 当前179期，剩0期</span>
+									</p>
+									<ul class="number">
+										<li class="li1"></li>
+										<li class="li2"></li>
+										<li class="li3"></li>
+										<li class="li4"></li>
+										<li class="li5"></li>
+										<li class="li6"></li>
+										<li class="li7"></li>
+										<li class="li8"></li>
+										<li class="li9"></li>
+										<li class="li10"></li>
+									</ul>							
+								</div>
+							<div class="time fr">
+								<div class="fen fl">02</div>
+								<span class="fl">分</span>
+								<div class="miao">55</div>
+								<span class="fl">秒</span>
+							</div>
+						</div>
+
+						<div class="t2">
+							<table border="1">
+						<tbody>
+							<tr>
+								<th colspan="5">1-5龙虎</th>
+								<th colspan="3">冠亚和</th>
+							</tr>
+							<tr>
+								<td>龙</td>
+								<td>龙</td>
+								<td>虎</td>
+								<td>虎</td>
+								<td>虎</td>
+								<td>12</td>
+								<td>小</td>
+								<td>单</td>
+							</tr>
+						</tbody>
+					</table>
+						</div></div>
+						<div class="b"></div>
+							
+					</div>
+				</div>
+				<div class="box3">
+					<div class="bjpk10">
+						<span class="b3t">北京PK拾</span>
+						<span class="b3t2"> 杀号计划</span>
+					</div>
+					<p class="rank">
+						<span class="first active">冠军</span>
+						<span>亚军</span>
+						<span>第三名</span>
+						<span>第四名</span>
+						<span>第五名</span>
+						<span>第六名</span>
+						<span>第七名</span>
+						<span>第八名</span>
+						<span>第九名</span>
+						<span>第十名</span>
+					</p>
+					<div class="rankingresult">
+						<ul>
+							<li>
+								<div class="head">
+									<img src="https://1680118.com/img/head_png/headicon_0.png">
+									<span class="bjpks" >冷雨夜</span>
+								</div>
+								<div class="result">
+									<p>最新冠军杀号:
+										<span class="red">5</span>
+									</p>
+									<p class="pgray">近10期成功率:
+										<span class="sred">90%</span>
+									</p>
+									<p class="pgray">历史战绩:
+										<span class="pgray">84%</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="head">
+									<img src="https://1680118.com/img/head_png/headicon_0.png">
+									<span class="bjpks">冷雨夜</span>
+								</div>
+								<div class="result">
+									<p>最新冠军杀号:
+										<span class="red">5</span>
+									</p>
+									<p class="pgray">近10期成功率:
+										<span class="sred">90%</span>
+									</p>
+									<p class="pgray">历史战绩:
+										<span class="pgray">84%</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="head">
+									<img src="https://1680118.com/img/head_png/headicon_0.png">
+									<span class="bjpks">冷雨夜</span>
+								</div>
+								<div class="result">
+									<p>最新冠军杀号:
+										<span class="red">5</span>
+									</p>
+									<p class="pgray">近10期成功率:
+										<span class="sred">90%</span>
+									</p>
+									<p class="pgray">历史战绩:
+										<span class="pgray">84%</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="head">
+									<img src="https://1680118.com/img/head_png/headicon_0.png">
+									<span class="bjpks">冷雨夜</span>
+								</div>
+								<div class="result">
+									<p>最新冠军杀号:
+										<span class="red">5</span>
+									</p>
+									<p class="pgray">近10期成功率:
+										<span class="sred">90%</span>
+									</p>
+									<p class="pgray">历史战绩:
+										<span class="pgray">84%</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="head">
+									<img src="https://1680118.com/img/head_png/headicon_0.png">
+									<span class="bjpks">冷雨夜</span>
+								</div>
+								<div class="result">
+									<p>最新冠军杀号:
+										<span class="red">5</span>
+									</p>
+									<p class="pgray">近10期成功率:
+										<span class="sred">90%</span>
+									</p>
+									<p class="pgray">历史战绩:
+										<span class="pgray">84%</span>
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="box3">
+					<div class="bjpk10">
+						<span class="b3t">北京PK拾</span>
+						<span class="b3t2"> 杀号计划</span>
+					</div>
+					<p class="rank">
+						<span class="first active">冠军</span>
+						<span>亚军</span>
+						<span>第三名</span>
+						<span>第四名</span>
+						<span>第五名</span>
+						<span>第六名</span>
+						<span>第七名</span>
+						<span>第八名</span>
+						<span>第九名</span>
+						<span>第十名</span>
+					</p>
+					<div class="rankingresult">
+						<ul>
+							<li>
+								<div class="head">
+									<img src="https://1680118.com/img/head_png/headicon_0.png">
+									<span class="bjpks">冷雨夜</span>
+								</div>
+								<div class="result">
+									<p>最新冠军杀号:
+										<span class="red">5</span>
+									</p>
+									<p class="pgray">近10期成功率:
+										<span class="sred">90%</span>
+									</p>
+									<p class="pgray">历史战绩:
+										<span class="pgray">84%</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="head">
+									<img src="https://1680118.com/img/head_png/headicon_0.png">
+									<span class="bjpks">冷雨夜</span>
+								</div>
+								<div class="result">
+									<p>最新冠军杀号:
+										<span class="red">5</span>
+									</p>
+									<p class="pgray">近10期成功率:
+										<span class="sred">90%</span>
+									</p>
+									<p class="pgray">历史战绩:
+										<span class="pgray">84%</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="head">
+									<img src="https://1680118.com/img/head_png/headicon_0.png">
+									<span class="bjpks">冷雨夜</span>
+								</div>
+								<div class="result">
+									<p>最新冠军杀号:
+										<span class="red">5</span>
+									</p>
+									<p class="pgray">近10期成功率:
+										<span class="sred">90%</span>
+									</p>
+									<p class="pgray">历史战绩:
+										<span class="pgray">84%</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="head">
+									<img src="https://1680118.com/img/head_png/headicon_0.png">
+									<span class="bjpks">冷雨夜</span>
+								</div>
+								<div class="result">
+									<p>最新冠军杀号:
+										<span class="red">5</span>
+									</p>
+									<p class="pgray">近10期成功率:
+										<span class="sred">90%</span>
+									</p>
+									<p class="pgray">历史战绩:
+										<span class="pgray">84%</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div class="head">
+									<img src="https://1680118.com/img/head_png/headicon_0.png">
+									<span class="bjpks">冷雨夜</span>
+								</div>
+								<div class="result">
+									<p>最新冠军杀号:
+										<span class="red">5</span>
+									</p>
+									<p class="pgray">近10期成功率:
+										<span class="sred">90%</span>
+									</p>
+									<p class="pgray">历史战绩:
+										<span class="pgray">84%</span>
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		<div class="right">
+			<div class="tjcz">
+				<div class="tjd1">
+					<p class="tjtp">推荐彩种</p>
+					<div class="tjtb">
+						<div class="line"></div>
+						<span class="tjts">RECOMMEND LOTTERY</span>
+						<div class="line"></div>
+					</div>
+				</div>
+				<div class="tjd2">
+					<ul>
+						<li>
+							<img src="https://1680118.com/img/Revision_img/bjpk10.png?v=201811231517">
+							<p style="font-size: 14px">北京PK10</p>
+						</li>
+						<li>
+							<img src="https://1680118.com/img/Revision_img/bjpk10.png?v=201811231517">
+							<p style="font-size: 14px">北京PK10</p>
+						</li>
+						<li>
+							<img src="https://1680118.com/img/Revision_img/bjpk10.png?v=201811231517">
+							<p style="font-size: 14px">北京PK10</p>
+						</li>
+						<li>
+							<img src="https://1680118.com/img/Revision_img/bjpk10.png?v=201811231517">
+							<p style="font-size: 14px">北京PK10</p>
+						</li>
+						<li>
+							<img src="https://1680118.com/img/Revision_img/bjpk10.png?v=201811231517">
+							<p style="font-size: 14px">北京PK10</p>
+						</li>
+						<li>
+							<img src="https://1680118.com/img/Revision_img/bjpk10.png?v=201811231517">
+							<p style="font-size: 14px">北京PK10</p>
+						</li>
+						<li>
+							<img src="https://1680118.com/img/Revision_img/bjpk10.png?v=201811231517">
+							<p style="font-size: 14px">北京PK10</p>
+						</li>
+						<li>
+							<img src="https://1680118.com/img/Revision_img/bjpk10.png?v=201811231517">
+							<p style="font-size: 14px">北京PK10</p>
+						</li>
+						<li>
+							<img src="https://1680118.com/img/Revision_img/bjpk10.png?v=201811231517">
+							<p style="font-size: 14px">北京PK10</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="pic">
+				<ul>
+					<li> 
+						<img src="https://1680118.com/img/special_png/pk10.png?v=201811231517">
+					</li>
+					<li class="li"> 
+						<img src="https://1680118.com/img/special_png/ssc.png?v=201811231517">
+					</li>
+					<li class="li"> 
+						<img src="https://1680118.com/img/special_png/11check5.png?v=201811231517">
+					</li>
+					<li class="li"> 
+						<img src="https://1680118.com/img/special_png/k3.png?v=201811231517">
+					</li>
+					<li class="li"> 
+						<img src="https://1680118.com/img/special_png/pcdd.png?v=201811231517">
+					</li>
+				</ul>
+			</div>
+			<div class="s3box">
+				<div class="fayc">
+					<div class="fl fadiv1">方案预测</div>
+					<div class="fadiv2 fr">更多</div>
+				</div>
+				<div class="newslist">
+					<ul>
+						<li>江苏快三号码推荐12月3日第02-23期</li>
+						<li>江苏快三号码推荐12月3日第02-23期</li>
+						<li>江苏快三号码推荐12月3日第02-23期</li>
+						<li>江苏快三号码推荐12月3日第02-23期</li>
+						<li>江苏快三号码推荐12月3日第02-23期</li>
+						<li>江苏快三号码推荐12月3日第02-23期</li>
+						<li>江苏快三号码推荐12月3日第02-23期</li>
+						<li>江苏快三号码推荐12月3日第02-23期</li>
+						<li>江苏快三号码推荐12月3日第02-23期</li>
+						<li>江苏快三号码推荐12月3日第02-23期</li>
+					</ul>
+				</div>
+			</div>
+			<div style="margin: 10px 0">
+				<img src="https://1680118.com/img/adviertisement.png?v=201811231517">
+			</div>
+			<div class="s4box">
+				<!-- <div class="s4box-p">
+					<p>分析工具</p> 
+				</div>
+				<div class="s4box-body">
+					<div>
+						<div class="pk10head">
+							<img src="https://1680118.com/img/index_r/beijinpk10.png?v=201811231517">
+							<span style="padding-left: 15px;">北京PK10</span>
+						</div>
+						<div class="pk10m">
+							<ul class="pk10m-ul">
+								<li>走势</li>
+								<li>更多</li>
+							</ul>
+						</div>
+						<ul>
+							<li>冠军和走势</li>
+							<li>位置走势</li>
+							<li>号码走势</li>
+					</ul>
+				</div>
+				</div> -->
+				<div class="toolshead">
+					<span>分析工具</span>
+				</div>
+				<div class="toolsbody">
+					<div class="toolslist">
+						<div class="listing">
+							<div class="tools1">
+								<div>
+									<img src="https://1680118.com/img/index_r/beijinpk10.png?v=201811231517">
+									<span>北京PK10</span>
+								</div>
+							</div>
+							<div class="tools2">
+								<span class="fl">走势</span>
+								<span class="fr gray">更多</span>
+							</div>
+							<div class="tools3">
+								<ul class="t3ul">
+									<li class="fl gray">冠军和走势</li>
+									<li class="fl gray">位置走势</li>
+									<li class="fl gray">号码走势</li>
+								</ul>
+							</div>
+							<div class="tools2">
+								<span class="fl">走势</span>
+								<span class="fr gray">更多</span>
+							</div>
+							<div class="tools3">
+								<ul class="t3ul">
+									<li class="fl gray">冠军和走势</li>
+									<li class="fl gray">位置走势</li>
+									<li class="fl gray">号码走势</li>
+								</ul>	
+
+						</div>
+					</div>
+					<div class="toolslist2">
+						<div class="listing">
+							<div class="tools1">
+								<div>
+									<img src="https://1680118.com/img/index_r/beijinpk10.png?v=201811231517">
+									<span>北京PK10</span>
+								</div>
+							</div>
+							<div class="tools2">
+								<span class="fl">走势</span>
+								<span class="fr gray">更多</span>
+							</div>
+							<div class="tools3">
+								<ul class="t3ul">
+									<li class="fl gray">冠军和走势</li>
+									<li class="fl gray">位置走势</li>
+									<li class="fl gray">号码走势</li>
+								</ul>
+							</div>
+							<div class="tools2">
+								<span class="fl">走势</span>
+								<span class="fr gray">更多</span>
+							</div>
+							<div class="tools3">
+								<ul class="t3ul">
+									<li class="fl gray">冠军和走势</li>
+									<li class="fl gray">位置走势</li>
+									<li class="fl gray">号码走势</li>
+								</ul>	
+
+						</div>
+					</div>
+				</div>
+
+
+				
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+</html>

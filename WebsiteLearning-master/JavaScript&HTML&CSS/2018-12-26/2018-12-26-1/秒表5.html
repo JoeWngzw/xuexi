@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+
+    </style>
+    <script>
+        function toDouble(n){
+            return n<10?'0'+n:''+n;
+        }
+        window.onload = function () {
+            var aInput=document.getElementsByTagName('input');
+
+            var n=0;
+            var aaa;
+            // 开始
+            aInput[1].onclick=function(){
+                aaa=setInterval(function(){
+                    n++;
+                    aInput[0].value=toDouble(parseInt(n/60))+':'+toDouble((n%60));
+                },100);
+            };
+            // 暂停
+            aInput[2].onclick=function(){
+                clearInterval(aaa);
+            };
+        };
+    </script>
+</head>
+<body>
+<input style="margin-left: 50px;" type="text" value="00:00">
+<input type="button" value="开始">
+<input type="button" value="暂停">
+</body>
+</html>

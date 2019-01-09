@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li {
+		width: 50px;
+		height: 50px;
+		border:  1px solid #ccc;
+
+		text-align: center;
+		line-height: 50px;
+		border-radius: 50%;
+		display: inline-block;
+		cursor: pointer;
+	}
+</style>
+<script>
+	function change (id) {
+
+		var oLi = document.getElementById(id)
+		oLi.style.backgroundColor = 'black';
+		oLi.style.color = '#fff';
+	}
+</script>
+<body>
+	<ul>
+		<li id="li1" onclick="change('li1')">1</li>
+		<li id="li2" onclick="change('li2')">2</li>
+		<li id="li3" onclick="change('li3')">3</li>
+		<li id="li4" onclick="change('li4')">4</li>
+		<li id="li5" onclick="change('li5')">5</li>
+		<li id="li6" onclick="change('li6')">6</li>
+	</ul>
+</body>
+</html>

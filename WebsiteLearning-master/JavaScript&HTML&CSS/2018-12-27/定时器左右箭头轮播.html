@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.div1{
+		margin:100px;
+		width: 300px;
+		height:300px;
+		border: 1px solid #ccc;
+		text-align: center;
+		l
+	}
+
+	button{
+		width: 40px;
+		height: 30px;
+	}
+
+
+	.active{
+		background-color: green;
+	}
+
+	li{
+		display: inline-block;
+		width: 130px;
+		height: 100px;
+		border: 1px solid #ccc;
+		margin-top: 10px;
+		display: none;
+	}
+
+	.xs{
+		display: inline-block;
+	}
+
+	a{
+		margin-right: 20px;
+/*		 margin: 0 auto;
+*/	}
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		var btn = document.getElementsByTagName('button');
+		var oLi = document.getElementsByTagName('li');
+		var left = document.getElementById('left');
+		var right = document.getElementById('right');
+		var n = 0;
+
+		for (var i = 0; i < btn.length; i++) {
+			(function(i){
+				btn[i].onclick = function(){
+					for (var j = 0; j < btn.length; j++) {
+						btn[j].className = '';
+						oLi[j].className = '';
+					}
+					btn[i].className = 'active';
+					oLi[i].className = 'xs';
+				}
+			})(i)
+		}
+
+
+		function rrr(){
+			n++;
+			for (var j = 0; j < btn.length; j++) {
+				btn[j].className = '';
+				oLi[j].className = '';
+			}
+			if(n==btn.length){
+				n=0;
+			}
+			btn[n].className = 'active';
+			oLi[n].className = 'xs';
+		}
+
+		var t = setInterval(rrr,1000)
+
+
+		//箭头向左
+		left.onclick = function(){
+			clearInterval(t);
+			t = setInterval(function(){
+				n--;
+				for (var j = 0; j < btn.length; j++) {
+					btn[j].className = '';
+					oLi[j].className = '';
+				}
+				if(n == -1){
+					n=btn.length-1;
+				}
+				btn[n].className = 'active';
+				oLi[n].className = 'xs';
+			},1000)
+		}
+
+
+		//箭头向右
+		right.onclick = function(){
+			clearInterval(t);
+			t = setInterval(rrr,1000)
+		}
+	}
+
+
+
+
+</script>
+</head>
+<body>
+
+
+	<div class="div1" id="div">
+		<div class="aa"><a id="right" href="javascript:;">→</a> <a id="left" href="javascript:;">←</a></div>
+
+		<button class="active">电器</button>
+		<button>衣服</button>
+		<button>水果</button>
+		
+		<ul>
+			<li class="xs">我是电器</li>
+			<li>我是衣服</li>
+			<li>我是水果</li>
+		</ul>
+
+	</div>
+</body>
+</html>

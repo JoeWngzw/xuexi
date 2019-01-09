@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<style type="text/css">
+		
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			$('button').click(function(){
+				var inn = $('input').val();
+				var cc = $('<li>').html(inn);
+				$('ul').prepend(cc)
+				// cc.appendTo('ul');
+				$('input').val('');
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="text" name="" placeholder="请输入留言">
+	<button>留言</button>
+	<ul>
+		
+	</ul>
+</body>
+</html>

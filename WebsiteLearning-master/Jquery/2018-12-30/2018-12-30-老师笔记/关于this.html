@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" onclick="alert('html')">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style>
+
+	* {
+		margin: 0;
+	}
+	#box {
+		background-color: green;
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
+	}
+
+	.red {
+		width: 100px;
+		height: 100px;
+		margin: 100px auto;
+		background-color: red;
+	}
+</style>
+
+<script>
+	window.onload = function () {
+		var oBox = document.getElementById('box');
+		var oRed = document.getElementById('red');
+
+
+
+
+		oRed.onclick = function (e) {
+			console.log(this)
+
+			function show () {
+				console.log(this)
+			}
+
+			show()
+		}
+
+	}
+</script>
+	<body onclick="alert('body')">
+		<div id="box">
+			<div class="red" id="red"></div>
+		</div>
+	</body>
+</html>

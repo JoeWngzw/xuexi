@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子游戏-列表页</title>
+	<link rel="stylesheet" href="./css/common.css">
+</head>
+<style>
+	body {
+		background-color: #2a2c3b;
+	}
+	.main-w {
+		width: 1000px;
+		margin: auto;
+	}
+	.nav {
+		height: 50px;
+		color: #fff;
+	}
+
+	.nav li {
+		line-height: 50px;
+		padding: 0 20px;
+		text-align: center;
+	}
+
+	.drop {
+		position: absolute;
+		left: 0;
+		height: 90px;
+		background-color: red;
+		display: none;
+	}
+
+	.menus {
+		height: 100%;
+		background-color: #232431;
+	}
+
+	.caret {
+		width: 0;
+		height: 0;
+		border: 5px solid transparent;
+		border-top-color: #fff;
+		line-height: 10px;
+		display: block;
+		margin: 0 auto;
+		margin-top: -12px;
+	}
+
+	.item {
+		margin-left: 20px;
+	}
+
+	.item p {
+		margin-top: -24px;
+	}
+
+	.item img {
+		width: 95px;
+	}
+
+	.banner {
+		height: 210px;
+		background: url(./images/banner.jpg) no-repeat center;
+	}
+
+	.container {
+		background-color: #313345;
+		margin-top: 20px;
+		padding-bottom: 40px;
+	}
+
+	.providers {
+		color: #fff;
+	}
+
+	.providers li {
+		height: 40px;
+		padding: 0 30px;
+		line-height: 40px;
+	}
+
+	.providers li.active {
+		background-color: #e89b37;
+	}
+
+	.game-provider input {
+		width: 127px;
+		height: 28px;
+		border:  none;
+	}
+
+	.game-provider button {
+		height: 28px;
+		border:0;
+		padding-right: 10px;
+	}
+	.search {
+		padding-top: 10px;
+	}
+
+	.gametype li {
+		height: 30px;
+		line-height: 30px;
+		padding: 0 16px;
+		margin-right: 20px;
+		border-radius: 4px;
+		margin-left: 10px;
+		margin-top: 20px;
+		color: #fff;
+	}
+
+	.gametype li.active {
+		background-color: #fff;
+		color: black;
+	}
+
+	.game-list {
+		width: 775px;
+		margin: 0 auto;
+		margin-top: 40px;
+	}
+
+	.game-list li {
+		width: 174px;
+		margin-right: 26px;
+		margin-bottom: 20px;
+	}
+
+	.game-list .li4 {
+		margin-right: 0;
+	}
+
+	.game-list li img {
+		width: 100%;
+		height: 135px;
+	}
+
+	.game-list li p {
+		text-align: center;
+		color: #afafaf;
+		text-align: center;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    background: #3b3d50;
+	    line-height: 34px;
+	    height: 34px;
+	}
+
+	.game-list .info{
+		color: #31708f;
+		   background-color: #d9edf7;
+		    border-color: #bce8f1;
+
+		    padding: 15px;
+		        margin-bottom: 20px;
+		        border: 1px solid transparent;
+		        border-radius: 4px;
+		  display: none;
+	}
+
+	.pagenation {
+		color: #fff;
+		text-align: center;
+	}
+
+	.pagenation li {
+		display: inline-block;
+	}
+</style>
+
+<script src="./js/ajax.js"></script>
+<script src="./js/jquery.js"></script>
+
+<script>
+
+	// https://b9188.com/member/gametype/?provider=MG&category=2&platform=0
+	// https://b9188.com/member/game/?platform=0&opt_expand=1&offset=0&limit=20&category=2&gametype=103&title=MG%20%E7%94%B5%E5%AD%90%E6%B8%B8%E8%89%BA
+
+
+	function getQueryString () {
+		var str = window.location.search.replace('?', '')
+		var obj = {}
+
+		var arr = str.split('&')
+
+		for(var i = 0; i < arr.length; i++) {
+
+			var brr = arr[i].split('=')
+			obj[brr[0]] = brr[1]
+		}
+
+		return obj
+	}
+
+	$(document).ready(function () {
+
+
+		var clientW = document.body.clientWidth || document.documentElement.clientWidth
+
+		$.ajax({
+			url: 'http://b9088.com/member/gamecategory/?mode=tree',
+			type: 'get',
+			success: function (data) {
+				console.log(data)
+				handleGamecategory(data)
+			}
+		})
+
+		function handleGamecategory (data) {
+			var arr = []
+			for(var i = 0; i < data.length; i++) {
+
+				var arrItems = []
+				for(var j = 0; j < data[i].provider.length;j++) {
+
+					var oProvider = data[i].provider[j]
+					var name = oProvider.code + oProvider.category_type.substring(0, 2)
+					var oItem = '<div data-flag="'+oProvider.code+'" class="item fl">\
+						<img src="'+data[i].provider[j].icon+'" alt="">\
+						<p>'+name+'</p>\
+					</div>'
+
+					arrItems.push(oItem)
+				}
+
+				var oS = '<li class="fl">\
+					<p>'+data[i].name+'</p>\
+					<span class="caret"></span>\
+					<div class="drop">\
+						<div class="main-w menus clearfix">\
+							'+arrItems.join('')+'\
+						</div>\
+					</div>\
+				</li>'
+
+				arr.push(oS)
+			}
+
+			$('.list').append(arr.join(''))
+
+			var aDrops = $('.drop')
+			aDrops.css('width', clientW)
+
+			$('.list li').hover(function() {
+				$(this).find('.drop').show()
+			}, function() {
+				$('.list li .drop').hide()
+			});
+
+			$('.list li').eq(2).find('.item').on('click', function () {
+
+				var oDate = new Date()
+				var tody = oDate.getFullYear() + '-' + (oDate.getMonth() + 1) + '-' + oDate.getDay()
+
+				var oProvider = $(this).data('flag')
+
+				window.open('/大牙/前端5期/2019-1-3/marty/list.html?date=' + tody + '&provider=' + oProvider , '_self')
+			})
+
+		}
+
+		window.onresize = function () {
+
+			var clientW = document.body.clientWidth || document.documentElement.clientWidth
+
+			aDrops.css('width', clientW)
+
+		}
+
+		console.log(getQueryString())
+
+		var aProviders = $('.providers li')
+		var currentProvider = getQueryString().provider || 'PT'
+
+		alert(currentProvider)
+		var currentGameType = ''
+		var aBtns = $('.pagenation li');
+
+		var pageNumber = 1
+		var totalN = 1
+
+
+
+		for(var i = 0; i < aProviders.length;i++) {
+			if (aProviders.eq(i).data('flag') == currentProvider) {
+				aProviders.eq(i).addClass('active')
+			}
+		}
+
+
+		aProviders.on('mouseover', function () {
+
+			aProviders.removeClass('active')
+			for(var i = 0; i < aProviders.length; i++) {
+
+				if (aProviders.eq(i).data('flag') == currentProvider) {
+					aProviders.eq(i).addClass('active')
+				}
+			}
+			$(this).addClass('active')
+		})
+
+		aProviders.on('mouseout', function () {
+
+			if ($(this).data('flag') != currentProvider) {
+				$(this).removeClass('active')
+			}
+		})
+
+
+		aProviders.on('click', function () {
+			aProviders.removeClass('active')
+			$(this).addClass('active')
+
+			currentProvider = $(this).data('flag')
+
+			pageNumber = 1
+			totalN = 1
+
+			aBtns.eq(2).html('当前:'+(pageNumber)+'')
+
+			fetchGameTypes()
+		})
+
+		function fetchGameTypes () {
+			$.ajax({
+				url: 'https://b9188.com/member/gametype/',
+				data: {
+					provider: currentProvider,
+					category: 2,
+					platform: 1
+				},
+				type: 'get',
+				success: function (data) {
+					handleGameType(data)
+				},
+				error: function (e) {
+					console.log(e)
+				}
+			})
+		}
+
+		fetchGameTypes()
+
+		function fetchGames () {
+
+			$.ajax({
+				url: 'https://b9188.com/member/game/?platform=1&opt_expand=1&offset='+ (pageNumber - 1) * 20 +'&limit=20&category=2&gametype='+currentGameType+'&title=MG',
+				type: 'get',
+				success: function (data) {
+					handleGames(data)
+				},
+				error: function (e) {
+					console.log(e)
+				}
+			})
+			
+		}
+
+		function handleGameType(data) {
+			var arr = []
+			for(var i = 0; i < data.length; i++) {
+				var active = ''
+				if (i == 0) {
+					currentGameType = data[i].id
+					active = 'active'
+					fetchGames()
+				}
+				
+				var oLi = '<li data-id="'+data[i].id+'" class="fl '+active+'">'+data[i].name+'</li>'
+				arr.push(oLi)
+			}
+
+
+			$('.gametype ul').html(arr.join(''))
+
+			var aGameTypes = $('.gametype li')
+
+
+			aGameTypes.on('mouseover', function () {
+
+				aGameTypes.removeClass('active')
+				for(var i = 0; i < aGameTypes.length; i++) {
+
+					if (aGameTypes.eq(i).data('id') == currentGameType) {
+						aGameTypes.eq(i).addClass('active')
+					}
+				}
+				$(this).addClass('active')
+			})
+
+			aGameTypes.on('mouseout', function () {
+
+				if ($(this).data('id') != currentGameType) {
+					$(this).removeClass('active')
+				}
+			})
+
+
+			aGameTypes.on('click', function () {
+				aGameTypes.removeClass('active')
+				$(this).addClass('active')
+
+				currentGameType = $(this).data('id')
+
+				pageNumber = 1
+
+				aBtns.eq(2).html('当前:'+(pageNumber)+'')
+
+				fetchGames()
+
+			})
+
+
+			console.log(arr)
+		}
+
+		function handleGames (data) {
+			console.log(data)
+
+			var pages = Math.ceil(data.count / 20)
+
+			totalN = pages
+
+
+			aBtns.eq(5).html('共'+pages+'页')
+			var str = ''
+			for(var i = 0; i < data.results.length; i++) {
+
+				var li4 = ''
+				if (i % 4 == 3) {
+					li4 = 'li4'
+				}
+				var oLi = '<li class="fl '+li4+'">\
+					<img src="'+data.results[i].icon+'" alt="">\
+					<p>'+data.results[i].name+'</p>\
+				</li>'
+
+				str += oLi
+			}
+
+			$('.game-list ul').html(str)
+		}
+
+
+		aBtns.eq(3).on('click', function () {
+
+
+			pageNumber++
+
+
+			if (pageNumber > totalN) {
+				pageNumber = totalN
+				return
+			}
+
+			aBtns.eq(2).html('当前:'+(pageNumber)+'')
+
+			fetchGames()
+
+		})
+
+
+		aBtns.eq(1).on('click', function () {
+
+
+			pageNumber--
+
+
+			if (pageNumber < 1) {
+				pageNumber = 1
+				return
+			}
+
+			aBtns.eq(2).html('当前:'+(pageNumber)+'')
+
+			fetchGames()
+		})
+
+
+		aBtns.eq(0).on('click', function () {
+
+
+			if (pageNumber == 1) {return}
+			pageNumber = 1
+
+
+			aBtns.eq(2).html('当前:'+(pageNumber)+'')
+
+			fetchGames()
+		})
+
+
+		aBtns.eq(4).on('click', function () {
+
+
+			if (pageNumber == totalN) {return}
+			pageNumber = totalN
+
+
+			aBtns.eq(2).html('当前:'+(pageNumber)+'')
+
+			fetchGames()
+		})
+
+	})
+
+</script>
+<body>
+
+	<div class="nav clearfix main-w">
+		<ul class="fl clearfix list">
+			<li class="fl"><a href="/大牙/前端5期/2019-1-3/marty/home.html">首页</a></li>
+			<!-- <li class="fl">
+				<p>真人视讯</p>
+				<span class="caret"></span>
+				<div class="drop">
+					<div class="main-w menus clearfix">
+	
+						<div class="item fl">
+							<img src="https://jaguar-production.azureedge.net/providericons/ag.png" alt="">
+							<p>AG电子</p>
+						</div>
+						
+
+						<div class="item fl">
+							<img src="https://jaguar-production.azureedge.net/providericons/ag.png" alt="">
+							<p>AG电子</p>
+						</div>
+
+						<div class="item fl">
+							<img src="https://jaguar-production.azureedge.net/providericons/ag.png" alt="">
+							<p>AG电子</p>
+						</div>
+					</div>
+				</div>
+
+			</li>
+			<li class="fl">
+
+				<p>电子游艺</p>
+				<span class="caret"></span>
+
+				<div class="drop">
+					<div class="main-w menus">
+						电子游艺
+					</div>
+				</div>
+
+			</li>
+			<li class="fl">
+				<p>体育赛事</p>
+				<span class="caret"></span>
+
+				<div class="drop">
+					<div class="main-w menus">
+						体育赛事
+					</div>
+				</div>
+			</li>
+			<li class="fl">
+				<p>彩票游戏</p>
+				<span class="caret"></span>
+
+				<div class="drop">
+					<div class="main-w menus">
+						彩票游戏
+					</div>
+				</div>
+			</li>
+			<li class="fl">
+				<p>捕鱼</p>
+				<span class="caret"></span>
+				
+				<div class="drop">
+					<div class="main-w menus">
+						捕鱼
+					</div>
+				</div>
+			</li> -->
+		</ul>
+		<ul class="fr clearfix">
+			<li class="fl">优惠活动</li>
+			<li class="fl">代理加盟</li>
+			<li class="fl">在线客服</li>
+		</ul>
+	</div>
+
+	<div class="banner"></div>
+
+	<div class="container main-w">
+		
+		<div class="game-provider clearfix">
+			<ul class="fl clearfix providers">
+				<li data-flag="PT" class="fl">PT电子游艺</li>
+				<li data-flag="AG" class="fl">AG电子游艺</li>
+				<li data-flag="MG" class="fl">MG电子游艺</li>
+				<li data-flag="GG" class="fl">GG电子游艺</li>
+				<li data-flag="KG" class="fl">成人电子游戏</li>
+			</ul>
+
+			<div class="fr search">
+				<input class="fl" type="text" placeholder="请输入游戏名称">
+				<button class="fl">搜索</button>
+			</div>
+		</div>
+
+		<div class="gametype">
+			<ul class="clearfix">
+				
+			</ul>
+		</div>
+
+		<div class="game-list">
+			<ul class="clearfix">
+				<!-- <li class="fl">
+					<img src="https://jaguar-production.azureedge.net/gameicons/SB21.jpg" alt="">
+					<p>越野机车</p>
+				</li>
+				<li class="fl">
+					<img src="https://jaguar-production.azureedge.net/gameicons/SB21.jpg" alt="">
+					<p>越野机车</p>
+				</li>
+				<li class="fl">
+					<img src="https://jaguar-production.azureedge.net/gameicons/SB21.jpg" alt="">
+					<p>越野机车</p>
+				</li>
+				<li class="fl li4">
+					<img src="https://jaguar-production.azureedge.net/gameicons/SB21.jpg" alt="">
+					<p>越野机车</p>
+				</li>
+				<li class="fl">
+					<img src="https://jaguar-production.azureedge.net/gameicons/SB21.jpg" alt="">
+					<p>越野机车</p>
+				</li> -->
+			</ul>
+
+			<p class="info">抱歉暂无<span>虚拟游戏</span>类型游戏, 请切换游戏类型</p>
+
+		</div>
+
+		<div class="pagenation">
+			<ul>
+				<li>首页</li>
+				<li>上一页</li>
+				<li>当前:1</li>
+				<li>下一页</li>
+				<li>尾页</li>
+				<li>共1页</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

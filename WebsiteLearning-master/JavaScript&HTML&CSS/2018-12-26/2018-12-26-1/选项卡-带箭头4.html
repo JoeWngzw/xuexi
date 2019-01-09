@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            position: absolute;
+            left: 200px;
+            top: 50px;
+        }
+        #box p{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        #box div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            display: none;
+            margin: 10px 0 0 0 ;
+        }
+        #box div.active{
+            display: block;
+        }
+        #box input{
+            width: 60px;
+            height: 30px;
+            line-height: 30px;
+            border: 0;
+        }
+        #box input.active{
+            background: #4baaff;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBox=document.getElementById('box');
+            var aBtn=oBox.getElementsByTagName('input');
+            var aDiv=oBox.getElementsByTagName('div');
+            var oLeft=document.getElementById('left');
+            var oRight=document.getElementById('right');
+
+            for(var i=0; i<aBtn.length; i++){
+                aBtn[i].index=i;
+                aBtn[i].onclick=function(){
+                    for(var i=0; i<aBtn.length; i++){
+                        aBtn[i].className='';
+                        aDiv[i].className='';
+                    }
+                    aBtn[this.index].className='active';
+                    aDiv[this.index].className='active';
+                    n=this.index;
+                };
+            }
+            var n=0;
+            // 左
+            oLeft.onclick=function(){
+                n--;
+                if(n<0)n=2;
+                for(var i=0; i<aBtn.length; i++){
+                    aBtn[i].className='';
+                    aDiv[i].className='';
+                }
+                aBtn[n].className='active';
+                aDiv[n].className='active';
+            };
+            // 右
+            oRight.onclick=function(){
+                n++;
+                if(n>2)n=0;
+                for(var i=0; i<aBtn.length; i++){
+                    aBtn[i].className='';
+                    aDiv[i].className='';
+                }
+                aBtn[n].className='active';
+                aDiv[n].className='active';
+            };
+        };
+    </script>
+</head>
+<body>
+<div id="box">
+    <p>
+        <a href="javascript:;" id="left">←</a>
+        <a href="javascript:;" id="right">→</a>
+    </p>
+    <input class="active" type="button" value="1111">
+    <input type="button" value="2222">
+    <input type="button" value="3333">
+
+    <div class="active">aaaa</div>
+    <div>bbbb</div>
+    <div>cccc</div>
+</div>
+</body>
+</html>

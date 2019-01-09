@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	div {
+		width: 400px;
+		height: 400px;
+		background-color: red;
+	}
+</style>
+<script type="text/javascript">
+
+
+	// 函数 功能块
+	function change() {
+
+
+		// = 赋值 先看 = 右边， 先把右边的运算结果 赋值给左边
+
+		var xiaohong = document.getElementById('box');
+
+		xiaohong.style.backgroundColor = 'green'; 
+		xiaohong.style.width = '200px'; 
+		xiaohong.style.height = '200px'; 
+	}
+</script>
+<body>
+	<div onclick="change()" id="box" class="box box2 box3"></div>
+</body>
+</html>

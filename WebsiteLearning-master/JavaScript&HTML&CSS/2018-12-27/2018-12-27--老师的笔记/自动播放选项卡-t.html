@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	button.active {
+		background: red;
+		color: #fff;
+	}
+	#box {
+		width: 420px;
+		margin: 30px auto;
+	}
+	#box div {
+		border: 1px solid black;
+		width: 400px;
+		height: 400px;
+		display: none
+	}
+	#box div.active {
+		display: block;
+	}
+</style>
+<script type="text/javascript">
+	window.onload = function () {
+		var oBox = document.getElementById('box')
+		var aBtn = oBox.getElementsByTagName('button')
+		var aDiv = oBox.getElementsByTagName('div')
+		var aArrow = oBox.getElementsByTagName('a')
+
+		var iNow = 0
+		for(var i = 0; i < aBtn.length; i++) {
+			aBtn[i].index = i
+			aBtn[i].onclick = function () {
+				iNow = this.index
+				for(var j = 0; j < aBtn.length; j++) {
+					aBtn[j].className = ''
+					aDiv[j].className = ''
+				}
+				this.className = 'active'
+				aDiv[this.index].className = 'active'
+			}
+		}
+
+		function handleInowName(iNow) {
+			for(var j = 0; j < aBtn.length; j++) {
+				aBtn[j].className = ''
+				aDiv[j].className = ''
+			}
+			aBtn[iNow].className = 'active'
+			aDiv[iNow].className = 'active'
+		}
+
+		aArrow[0].onclick = toLeft
+
+		function toLeft() {
+			iNow--
+			if (iNow < 0) {
+				iNow = aBtn.length - 1
+			}
+			handleInowName(iNow)
+		}
+
+		aArrow[1].onclick = function () {
+			iNow++
+			if (iNow > (aBtn.length - 1)) {
+				iNow = 0
+			}
+			handleInowName(iNow)
+		}
+
+		clearInterval(timer)
+
+		var timer = setInterval(function () {
+			toLeft()
+		}, 1000)
+
+		oBox.onmouseover = function () {
+			clearInterval(timer)
+		}
+
+		oBox.onmouseout = function () {
+			timer = setInterval(function () {
+				toLeft()
+			}, 1000)
+		}
+
+	}
+</script>
+<body>
+	<div id="box">
+		<a href="javascript:;"><-</a>
+		<a href="javascript:;">-></a>
+		<button class="active">广告1</button>
+		<button>广告2</button>
+		<button>广告3</button>
+		<div class="active">内容1</div>
+		<div>内容2</div>
+		<div>内容3</div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+	window.onload = function(){
+		var btn = document.getElementsByTagName('button');
+
+
+	for (var i = 0; i < btn.length; i++) {
+		(function(index){
+              btn[index].onclick = function(){
+              	alert(index)
+              }
+		})(i)
+	}
+	}
+	
+	
+
+
+</script>
+<body>
+	<button>1</button>
+	<button>2</button>
+	<button>3</button>
+</body>
+</html>

@@ -1,0 +1,204 @@
+	body{
+		background-color: #2a2b3c;
+	}
+	.games{
+		max-width: 1000px;
+		width: 100%;
+		margin: 0 auto;
+		background-color: #313347;
+	}
+
+	.game-company{
+	}
+
+	.game-company a{
+		display: inline-block;
+		padding: 10px 30px;
+		color: #fff;
+		border: 1px solid #3b3d50;
+	}
+
+	.game-name{
+		width: 200px;
+		height: 30px;
+		line-height: 30px;
+	}
+
+	.game-bt{
+		margin: 0;
+		padding: 0;
+		width: 50px;
+		height: 30px;
+	}
+
+	.game-search{
+		padding: 3px 24px;
+		color: #fff;
+	}
+	.aa{
+		border: 1px solid #3b3d50;
+		height: 41px;
+	}
+
+	.game-type{
+		height: 40px;
+		color: #ddd;
+	}
+
+	.game-type li{
+		margin: 10px 5px;
+	}
+
+	.game-type a{
+		display: inline-block;
+		color: #fff;
+		border-radius: 5px;
+		padding:0px 12px;
+		width: 100%;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+	}
+	
+	.game-type a.active{
+		background-color: #fff;
+		color: #333;
+	}
+
+	.game-img-list{
+		width: 800px;
+		margin: 0 auto
+	}
+
+	.game-img-list li{
+		width: 180px;
+		height: 150px;
+		background-image: url("https://jaguar-production.azureedge.net/gameicons/ririshc.jpg");
+		background-size: 100% 100%;
+		margin:0 10px;
+		margin-bottom: 50px;
+		position: relative;
+	}
+
+	.game-img-list p{
+		display: block;
+		position: absolute;
+		top: 150px;
+		color: #ccc;
+		text-align: center;
+		width: 180px;
+		height: 30px;
+		line-height: 30px;
+		border: 1px solid #ccc;
+	}
+
+	.game-company .active{
+		background-color: #f39800;
+	}
+
+	.img{
+		background: url(https://jaguar-production.azureedge.net/gamecategory/electric.jpg) center; height: 210px	
+	}
+
+	.alert-info {
+	    color: #31708f;
+	    background-color: #d9edf7;
+	    border-color: #bce8f1;
+	}
+
+	.alert {
+	    padding: 15px;
+	    margin-bottom: 20px;
+	    border: 1px solid transparent;
+	    border-radius: 4px;
+	    text-align: center;
+	 	margin: 43px 0;
+	}
+	 .inner {
+	    width: 800px;
+	    margin: 0 auto;
+	    padding-bottom: 20px;
+	    position: relative;
+	}
+
+	.container{
+	max-width: none!important;
+   	 width: 1000px!important;
+	}
+
+	
+	.page{
+		text-align: center;
+	}
+
+	.page li{
+		display: inline-block;
+		color: #ccc;
+		padding: 5px 10px;
+		background-color: #3b3d50;
+		border-radius: 3px;
+	}
+
+	.nav{
+		width: 1000px;
+		margin: 0 auto;
+		height: 50px;
+		background-color: #2a2b3c;
+	}
+	.nav li{
+		color: #fff;
+		display: inline-block;
+		padding: 15px 20px;
+	}
+	.nav-fl li{
+		float: left;
+	}
+	.nav-fl li{
+		float: left;
+	}
+	.gameP{
+		border: 5px  solid transparent;
+		width:0;
+		height:0;
+		border-top-color: #fff;
+		display: block;
+		margin: 0 auto;
+		margin-top: 3px;
+	}
+
+	.gameDiv{
+		position: absolute;
+		left: 0;
+		margin: 0 auto;
+		width: 100%;
+		background: #232432;
+		top: 50px;
+		display: none;
+	}
+
+	.gameList{
+		margin:0 auto;
+		width: 1000px;
+		height: 80px;
+	}
+
+	.game{
+		width: 130px;
+		float: left;
+	}
+	.nav-fr li{
+		float: right;
+	}
+	.game img{
+		width: 100px;
+		height: 60px;
+		margin-left: 20px;
+	}
+	.game p{
+		text-align: center;
+		margin-top: -10px;
+	}
+		a{
+		text-decoration: none;
+		color: #fff;
+	}

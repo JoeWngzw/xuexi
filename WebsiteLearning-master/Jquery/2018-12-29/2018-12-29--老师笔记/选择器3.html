@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+
+	<style>
+		
+		#div1 {
+			height: 200px;
+			width: 100px;
+			background-color: red;
+		}
+		div#div1 {
+
+		}
+
+		p {
+
+		}
+
+		#div1  p {
+
+		}
+
+
+	</style>
+	<script src="./jquery.js"></script>
+
+	<script>
+		// 
+		var aP
+		$(document).ready(function () {
+			aP = $('#div1 > p')
+
+			console.log(aP.html())
+		})
+	
+	</script>
+	<body>
+		<div id="div1" class="">
+			<p>111</p>
+			<p>88888</p>
+		</div>
+		<p>2222</p>
+	</body>
+</html>

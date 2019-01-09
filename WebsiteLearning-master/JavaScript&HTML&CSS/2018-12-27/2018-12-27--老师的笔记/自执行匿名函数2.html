@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+	button.active {
+		background: green;
+		color: #fff
+	}
+
+	div {
+		width: 230px;
+		height: 180px;
+		border: 1px solid black;
+		display: none;
+		text-align: center;
+		line-height: 180px;
+	}
+	
+
+
+
+</style>
+<script type="text/javascript">
+	window.onload = function () {
+		var aBtns = document.getElementsByTagName('button')
+		var oCons = document.getElementsByTagName('div')
+
+
+		for(var i = 0; i < aBtns.length; i++) {
+			;(function (i) {
+				aBtns[i].onclick = function () {
+					for(var j = 0; j < aBtns.length; j++){
+						aBtns[j].className = ''
+						oCons[j].style.display = 'none'
+					}
+
+					aBtns[i].className = 'active'
+					oCons[i].style.display = 'block'
+				}
+			})(i)
+		}
+
+
+	}
+</script>
+<body>
+	<button class="active">新闻</button>
+	<button>热点</button>
+	<button>娱乐</button>
+
+	<div style="display: block;">我是新闻</div>
+	<div>我是热点</div>
+	<div>我是娱乐</div>
+</body>
+</html>

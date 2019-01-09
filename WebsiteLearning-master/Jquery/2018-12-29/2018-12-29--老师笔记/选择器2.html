@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+
+	<style>
+		
+		#div1 {
+			height: 200px;
+			width: 100px;
+			background-color: red;
+		}
+		div#div1 {
+
+		}
+	</style>
+	<script src="./jquery.js"></script>
+
+	<script>
+		// 
+
+
+		$(document).ready(function () {
+
+
+			var oDiv2 = document.getElementById('div1')
+
+			console.log(oDiv2)
+
+			var oDiv = $('#div1')
+			console.log(oDiv)
+
+
+			alert(oDiv2 == oDiv[0])
+
+		})
+
+	
+	</script>
+	<body>
+		<div id="div1" class="">
+
+		</div>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var cbox = document.getElementById('cbox').children;
+
+			var selectAll = document.getElementById('selectAll');
+
+			var n = 0;
+			selectAll.onclick = function(){
+				for (var i = 0; i < cbox.length; i++) {
+
+					if(n%2 ==0){
+						cbox[i].setAttribute('checked',true);
+					}else{
+						cbox[i].removeAttribute('checked') 
+					}
+				}
+				n++;
+			}
+
+
+		for (var i = 0; i < cbox.length; i++) {
+				// cbox[i].index = i;
+				var index = 0;
+				var innnn = 0;
+				cbox[i].onclick = function(){
+						if(this.checked == true){
+							index++;
+						}
+						if(this.checked == false){
+							innnn++;
+						}
+
+					if(index==cbox.length){
+						selectAll.setAttribute('checked',true);
+					}
+					if(innnn==cbox.length){
+						selectAll.removeAttribute('checked') 
+					}
+					
+				}
+			}
+
+
+		
+
+		}
+	</script>
+</head>
+<body>
+	<input id="selectAll" type="checkbox" name="">全选
+
+	<hr>
+	<div id="cbox">
+		<input type="checkbox"  name=""> 
+		<input type="checkbox"  name=""> 
+		<input type="checkbox"  name=""> 
+		<input type="checkbox"  name=""> 
+		<input type="checkbox"  name=""> 
+		<input type="checkbox"  name=""> 
+		<input type="checkbox"  name="">
+	</div>
+	
+</body>
+</html>

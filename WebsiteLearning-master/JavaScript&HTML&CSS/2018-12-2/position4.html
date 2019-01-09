@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<style type="text/css">
+	.box {
+		width: 300px;
+		height: 300px;
+		background-color: black;
+		margin: 100px auto;
+		position: relative;
+		z-index: 0;
+	}
+
+	.box div {
+		width: 150px;
+		height: 150px;
+		background-color: yellow;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-left: -75px;
+		margin-top: -75px;
+		z-index: 999999999;
+	}
+
+	.outside {
+		width: 200px;
+		height: 200px;
+		background-color: gray;
+		position: absolute;
+		left: 640px;
+		top: 200px;
+		z-index: 3;
+	}
+</style>
+<body>
+	<div class="box">
+		<div></div>
+	</div>
+	<div class="outside"></div>
+</body>
+</html>

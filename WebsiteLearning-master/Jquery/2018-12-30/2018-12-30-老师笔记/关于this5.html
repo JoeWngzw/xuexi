@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" onclick="alert('html')">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style>
+
+	* {
+		margin: 0;
+	}
+	#box {
+		background-color: green;
+		width: 300px;
+		height: 300px;
+		overflow: hidden;
+	}
+
+	.red {
+		width: 100px;
+		height: 100px;
+		margin: 100px auto;
+		background-color: red;
+	}
+</style>
+
+<script>
+	window.onload = function () {
+
+		var o = {
+			color: 'red'
+		}
+
+		var b = {
+			color: 'blue'
+		}
+		
+ 		function show (a, b) {
+ 			console.log(this.color)
+ 			console.log(a)
+ 			console.log(b)
+ 		}
+
+
+ 		// undefined
+ 		show()
+
+ 		show.call(o, '1', '2')
+
+ 		show.call(b)
+
+
+ 		show.apply(o, [3, 4])
+
+	}
+</script>
+	<body onclick="alert('body')">
+		
+	</body>
+</html>

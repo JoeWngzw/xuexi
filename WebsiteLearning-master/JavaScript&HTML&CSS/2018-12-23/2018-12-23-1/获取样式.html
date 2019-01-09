@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.round {
+			width: 60px;
+			height: 60px;
+			padding: 11px;
+			border: 1px solid #ccc;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 90px;
+		}
+	</style>
+
+	<script>
+	
+
+
+		window.onload = function () {
+			var oDiv = document.getElementById('round');
+
+			// console.log(getComputedStyle(oDiv, false)['text-align'])
+			
+
+			function getStyle (obj, name) {
+				if (obj.currentStyle) {
+					return obj.currentStyle[name]
+				} else {
+					return getComputedStyle(obj, false)[name]
+				}
+			}
+
+			var a  = getStyle(oDiv, 'width')
+
+			alert(a)
+
+			alert(oDiv.offsetHeight)
+			alert(oDiv.offsetWidth)
+
+		}
+
+		
+	</script>
+
+	<body>
+		<div style="" class="round" id="round"></div>	
+	</body>		
+		
+</html>

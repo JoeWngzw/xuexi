@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+
+	<style>
+		
+		* {
+			list-style: none;
+		}
+		#div1 {
+			height: 200px;
+			width: 100px;
+			background-color: red;
+		}
+		ul {
+			padding: 10px;
+			border: 1px solid #ccc;
+			float: left;
+		}
+		li {
+			width: 100px;
+		}
+	</style>
+	<script src="./jquery.js"></script>
+
+	<script>
+		// 
+
+		function rnd (n, m) {
+			return parseInt(n + Math.random() * (m - n))
+		}
+
+		$(document).ready(function () {
+
+			var aUl = $('ul')
+				
+			for(var i = 0; i < 30; i++) {
+
+				aUl.sort(function (n1, n2) {
+
+					return $(n1).height() - $(n2).height()
+				})
+
+
+				$('<li>').css({
+					'backgroundColor': 'rgb('+rnd(0,255)+', '+rnd(0,255)+', '+rnd(0,255)+')',
+					'height': rnd(100, 140)
+				}).appendTo(aUl.eq(0))
+			}
+		})
+
+
+		$(window).on('scroll', function () {
+
+
+		})
+	 
+	</script>
+	<body>
+		<ul>
+			
+		</ul>
+
+		<ul>
+			
+		</ul>
+
+		<ul>
+			
+		</ul>
+	</body>
+</html>

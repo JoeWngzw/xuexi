@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+	
+
+	var arr = [{
+		height: '158',
+	}, {
+		height: '168'
+	}, {
+		height: '155'
+	}, {
+		height: '160'
+	}, {
+		height: '143'
+	}]
+
+
+
+	var arr2 = arr.sort(function (n1, n2) {
+
+
+		return -Number(n1.height) + Number(n2.height)
+	})
+
+	console.log(arr2)
+
+
+</script>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+	window.onload = function(){
+		var oSp = document.getElementById('oSp');
+
+		var arrt = [{
+			name:"a",
+			xf:169
+		},{
+			name:"b",
+			xf:170
+		},{
+			name:"c",
+			xf:-169
+		},{
+			name:"d",
+			xf:180
+		}]
+
+		var num = 0;
+		for (var i = 0; i < arrt.length; i++) {
+			num+=arrt[i].xf;
+		}
+		oSp.innerHTML= num;
+	}
+</script>
+<body>
+	<p>学费一共多钱：<span id="oSp"></span></p>
+</body>
+</html>

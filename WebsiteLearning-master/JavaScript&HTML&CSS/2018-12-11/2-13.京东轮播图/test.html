@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	body{
+		font-family: Microsoft YaHei;
+	}
+
+	#box{
+		width: 670px;
+		height: 240px;
+		margin:0 auto;
+		margin-top: 100px;
+		position: relative;
+	}
+
+	.boximg{
+		width: 100%;
+		height: 100%;
+	}
+	
+	.boxul{
+		width: 100%;
+		position: absolute;
+		left: 0px;
+		bottom:10px;
+		text-align: center;
+	}
+
+	.boxul li{
+		border: 1px solid #ccc;
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+		border-radius: 50%;
+		text-align: center;
+		background-color: #fff;
+		
+	}
+
+	.boxul .active{
+		background-color: red;
+	}
+
+</style>
+<script type="text/javascript">
+	window.onload = function(){
+		var uli = document.getElementById('boxul').children;
+		var ii = 1; 
+		var bb = 0;
+		var img = document.getElementById('img');
+		for (var i = 0; i < uli.length; i++) {
+
+			uli[i].index = i;
+			uli[i].onclick = function(){
+
+				for (var i = 0; i < uli.length; i++) {
+					uli[i].className = ''
+				}
+				this.className = 'active'
+				ii = this.index+1;
+				bb = this.index;
+				// console.log(this.index);
+				img.src = './img/pic'+(this.index+1)+'.jpg'
+			}				
+		}
+
+
+		/*
+			1.打开页面第一次看到的是第一张图   所以下一秒就是第二张图片---下面点击下标也是一样
+				
+			2.
+		*/
+		window.setInterval(time, 2000);
+		
+		function time(){
+			ii++;
+			bb++;
+			if(ii < 7 && bb < uli.length){
+				lbt(ii,bb);
+			}else{
+				ii = 1;
+				bb = 0;
+				
+				lbt(ii,bb);
+			}
+			
+		}
+
+		/*轮播图*/
+		function lbt(ii,bb){
+			for (var i = 0; i < uli.length; i++) {
+					uli[i].className = ''
+				}
+				uli[bb].className = 'active'
+
+				img.src = './img/pic'+(ii)+'.jpg'
+		}
+
+
+	}
+	
+</script>
+<body>
+	<div id="box">
+		<div class="boximg">
+			<img id="img" src="./img/pic1.jpg" alt="">
+		</div>
+		<div>
+			<ul class="boxul" id="boxul">
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+		</div>
+	</div>
+	
+</body>
+</html>

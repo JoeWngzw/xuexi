@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+
+    </style>
+    <script>
+        window.onload = function () {
+            var aInput=document.getElementsByTagName('input');
+
+            var n=0;
+            aInput[1].onclick=function(){
+                setInterval(function(){
+                    n++;
+                    aInput[0].value=parseInt(n/60)+'分'+(n%60)+'秒';
+                },100);
+
+            };
+        };
+    </script>
+</head>
+<body>
+<input style="margin-left: 50px;" type="text" value="0分0秒">
+<input type="button" value="开始">
+</body>
+</html>

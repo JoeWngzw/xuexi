@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+
+	<style>
+		
+		#div1 {
+			height: 200px;
+			width: 100px;
+			background-color: red;
+		}
+
+		li {
+			float: left;
+			width: 50px;
+			height: 50px;
+			border:  1px solid #ccc;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 50px;
+			list-style: none;
+		}
+
+		li.active {
+			background-color: black;
+			color: #fff;
+		}
+	</style>
+	<script src="./jquery.js"></script>
+
+	<script>
+		// 
+
+
+		$(document).ready(function () {
+
+
+			$('li').eq(0).mouseover(function(event) {
+				alert('鼠标移进去了')
+			});
+
+
+			$('li').eq(0).mouseout(function(event) {
+				/* Act on the event */
+				alert('鼠标移c出去了')
+			});
+
+
+			$('li').eq(0).hover(function () {
+				alert('鼠标移进去了2')
+
+			}, function () {
+				alert('鼠标移c出去了2')
+			});
+
+			
+		})
+
+	
+	</script>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+		</ul>
+	</body>
+</html>

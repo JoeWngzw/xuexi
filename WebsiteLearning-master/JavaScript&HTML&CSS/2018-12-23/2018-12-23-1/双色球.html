@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>双色球</title>
+	</head>
+
+
+	<script>
+		
+		// 出现七个球 每个的号码是 1 - 33随机 而且每个号码不能重复
+
+		function rnd(n, m) {
+			return parseInt(Math.random() * (m- n)) + n
+		}
+
+
+		var arr = []
+		for(var i = 0; i < 7; i++) {
+
+			var number = rnd(1, 33)
+
+			if (number < 10) {
+				number = '0' + number
+			}
+
+			if (!findInArray(arr, number)) {
+				arr.push(number)
+			} else {
+				i--
+			}
+
+		}
+
+		document.write(arr)
+
+
+		function findInArray (arr, item) {
+
+			for(var i = 0; i < arr.length; i++) {
+				if (arr[i] == item) {
+					return true
+				}
+			}
+			return false
+		}
+
+
+	</script>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var ks = document.getElementById('ks');
+			var zt = document.getElementById('zt');
+
+			function toDuble(j){
+				return j < 10 ? '0'+ j : j +'';  
+			}
+			var n = 0;
+			var f;
+			var m;
+			var djs = document.getElementById('djs');
+
+			function dddjs(){
+				 n++;
+				 f= Math.floor(n / 60);
+				  m = n % 60;
+				  djs.value = ''+toDuble(f)+':'+toDuble(m)+'';
+			}
+
+			var t;
+
+			ks.onclick = function(){
+				clearInterval(t)
+				t = setInterval(dddjs,1000)
+			}
+			zt.onclick = function(){
+				clearInterval(t)
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<input id="djs" type="text" name="" value="00:00">
+
+	<button id="ks">开始</button>
+	<button id="zt">暂停</button>
+</body>
+</html>

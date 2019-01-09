@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大牙培训</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000;
+        }
+        ul li{
+            float: left;
+            list-style: none;
+        }
+        ul{
+            width: 200px;
+            margin: 0 auto;
+            font-size: 50px;
+            color: #fff;
+        }
+    </style>
+</head>
+<script>
+
+    function toDouble (n) {
+        return n < 10 ? '0' + n : '' + n
+    }
+    window.onload = function () {
+
+
+        var aImgs = document.getElementsByTagName('img')
+
+
+        function clock () {
+            var oDate = new Date()
+
+            var oH = toDouble(oDate.getHours())
+
+            var oM = toDouble(oDate.getMinutes())
+
+            var oS = toDouble(oDate.getSeconds())
+
+
+            var str = oH + oM + oS
+
+            for(var i = 0; i < str.length; i++) {
+                aImgs[i].src = 'img/'+ str.charAt(i) +'.png'
+            }
+        }
+
+        clock()
+        setInterval(clock, 1000)
+    }
+</script>
+<body>
+<ul>
+    <li><img src="img/2.png" alt=""></li>
+    <li><img src="img/1.png" alt=""></li>
+    <li>:</li>
+    <li><img src="img/0.png" alt=""></li>
+    <li><img src="img/4.png" alt=""></li>
+    <li>:</li>
+    <li><img src="img/1.png" alt=""></li>
+    <li><img src="img/1.png" alt=""></li>
+</ul>
+</body>
+</html>

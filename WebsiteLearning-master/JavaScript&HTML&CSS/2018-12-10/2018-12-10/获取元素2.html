@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+</style>
+
+<script>
+
+	window.onload = function () {
+		var oBtn = document.getElementById('btn');
+
+
+		var aBtns = document.getElementsByClassName('xiaoming');
+
+
+		aBtns.onclick = function () {
+			alert(1)
+		}
+
+		console.log('当下 oBtn 是')
+		console.log(oBtn)
+
+
+		console.log('当下 aBtns 是')
+		console.log(aBtns)
+
+	}
+</script>
+<body>
+	<button id="btn" class="xiaoming xiaofen">点击</button>
+</body>
+</html>
